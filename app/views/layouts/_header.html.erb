@@ -3,16 +3,33 @@
     <%= link_to t("app.name"), root_path, id: "logo", class: "navbar-brand" %>
     <nav>
       <ul class="nav navbar-nav">
-        <li>
-          <%= link_to t("languages.vi"), locale: "vi" %>
+        <li><%= link_to t(".home"), root_path %></li>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t ".account" %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t(".profile"), current_user %></li>
+              <li><%= link_to t(".settings"), "#" %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to t(".log_out"), logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t(".login"), login_path %></li>
+        <% end %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= t "languages.language" %> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to t("languages.en"), locale:"en" %></li>
+            <li><%= link_to t("languages.vi"), locale:"vi" %></li>
+          </ul>
         </li>
-        <li>
-          <%= link_to t("languages.en"), locale: "en" %>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t(".help"), help_path %></li>
-        <li><%= link_to t(".login"), "#" %></li>
       </ul>
     </nav>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_09_065228) do
+ActiveRecord::Schema.define(version: 2019_01_09_083254) do
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_065228) do
     t.integer "categogy_id"
     t.integer "publisher_id"
     t.string "name"
-    t.text "conten"
+    t.text "content"
     t.integer "number_of_page"
     t.integer "status"
     t.string "image"
@@ -74,11 +74,12 @@ ActiveRecord::Schema.define(version: 2019_01_09_065228) do
     t.string "name"
     t.string "email"
     t.string "password"
-    t.boolean "is_admin"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"
+    t.string "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
