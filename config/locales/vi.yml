@@ -1,0 +1,32 @@
+vi:
+  languages:
+    en: "English"
+    vi: "Vietnam"
+  app:
+    name: "SampleApp"
+  layouts:
+    header:
+      help: "Giúp đỡ"
+      login: "Đăng nhập"
+      home: "SampleApp"
+    footer:
+      about: "Về chúng tôi"
+      contact: "Liên lạc"
+  static_pages:
+    home:
+      title: "Trang chủ"
+      content: "Chào mừng đến với website của tôi"
+      button: "Đăng ký ngay"
+    about:
+      title: "Về chúng tôi"
+      content: "Đây là trang giới thiệu về chúng tôi"
+    contact:
+      title: "Liên lạc"
+      content: "Đây là trang liên lạc với chúng tôi"
+    help:
+      title: "Giúp đỡ"
+      content: "Bận cần sự giúp đỡ của chúng tôi ?"
+  users:
+    new:
+      title: "Đăng ký"
+      content: "Đây là trang đăng ký"

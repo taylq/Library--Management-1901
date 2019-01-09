@@ -1,1 +1,32 @@
 en:
+  languages:
+    en: "English"
+    vi: "Vietnam"
+  app:
+    name: "SampleApp"
+  layouts:
+    header:
+      help: "Help"
+      login: "Login"
+      home: "SampleApp"
+    footer:
+      about: "About"
+      contact: "Contact"
+  static_pages:
+    home:
+      title: "HomePage"
+      content: "Welcome to SampleApp !"
+      button: "Signup now"
+    about:
+      title: "AboutPage"
+      content: "This is about page"
+    contact:
+      title: "ContactPage"
+      content: "This is contact page"
+    help:
+      title: "HelpPage"
+      content: "This is help page"
+  users:
+    new:
+      title: "Sign Up"
+      content: "This is sign up page"
