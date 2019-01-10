@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title yield :page_title %></title>
+    <%= render "layouts/admin/default" %>
+  </head>
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <%= render "layouts/admin/menu" %>
+        <%= render "layouts/admin/header" %>
+        <%= yield %>
+        <%= render "layouts/admin/footer" %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -4,7 +4,7 @@ en:
     en: "English"
     vi: "Vietnamese"
   app:
-    name: "Thư viện"
+    name: "Library System"
   layouts:
     header:
       help: "Help"
@@ -49,3 +49,6 @@ en:
   shared:
     error_messages:
       form_err: "The form contains"
+  admin:
+    welcome: "Welcome,"
+    menu: "Menu"

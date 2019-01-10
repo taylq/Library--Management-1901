@@ -18,6 +18,7 @@ gem "ffaker"
 gem "kaminari"
 gem "rails-i18n"
 gem "figaro"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "pry", platforms: [:mri, :mingw, :x64_mingw]
