@@ -10,6 +10,10 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 255},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true, length: {minimum: 6}
+
+  default_scope -> {order(created_at: :desc)}
+  scope :select_attr, ->{select(:id, :name, :email, :role)}
+
   has_secure_password
 
   def gravatar_url options = {size: 50}

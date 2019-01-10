@@ -32,6 +32,8 @@ vi:
       title: "Giúp đỡ"
       content: "Bận cần sự giúp đỡ của chúng tôi ?"
   users:
+    index: "Quản lý người dùng"
+    role: "Vai trò"
     new:
       title: "Đăng ký"
       content: "Đây là trang đăng ký"
@@ -52,4 +54,12 @@ vi:
   admin:
     welcome: "Chào,"
     menu: "Menu"
+    users: "Người dùng"
+  views:
+    pagination:
+      first: "Trang đầu"
+      last: "Trang cuối"
+      next: "Trang sau"
+      previous: "Trang trước"
+
 

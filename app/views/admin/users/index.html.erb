@@ -1,0 +1,24 @@
+<% provide :title, t("users.index") %>
+<div class="right_col" role="main">
+<h1><%= t "users.index" %></h1>
+  <div class="">
+    <div class="row top_tiles" style="margin: 10px 0;">
+      <div class="col-md-12 col-sm-12 col-xs-12 tile">
+        <ul class="users">
+          <table class="table">
+            <tr>
+              <th><%= t "users.new.name" %></th>
+              <th><%= t "sessions.new.email" %></th>
+              <th><%= t "users.role" %></th>
+              <th></th>
+            </tr>
+              <%= render @users %>
+          </table>
+        </ul>
+        <div class="col-sm-8 col-sm-offset-3">
+          <%= paginate @users, theme: "twitter-bootstrap-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

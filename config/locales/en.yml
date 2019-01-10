@@ -32,6 +32,8 @@ en:
       title: "HelpPage"
       content: "This is help page"
   users:
+    index: "Manage users"
+    role: "Role"
     new:
       title: "Sign Up"
       content: "This is sign up page"
@@ -52,3 +54,10 @@ en:
   admin:
     welcome: "Welcome,"
     menu: "Menu"
+    users: "Users"
+  views:
+    pagination:
+      first: "First"
+      last: "Last"
+      next: "Next"
+      previous: "Previous"

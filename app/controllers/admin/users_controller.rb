@@ -2,7 +2,9 @@ module Admin
   class UsersController < BaseController
     before_action :find_user, except: %i(index new create)
 
-    def index; end
+    def index
+      @users = User.select_attr.page(params[:page]).per(Settings.per_page)
+    end
 
     def new
       @user = User.new
