@@ -1,14 +1,19 @@
 vi:
   languages:
-    en: "English"
-    vi: "Vietnam"
+    language: "Ngôn ngữ"
+    en: "Tiếng Anh"
+    vi: "Tiếng Việt"
   app:
-    name: "SampleApp"
+    name: "Library"
   layouts:
     header:
       help: "Giúp đỡ"
       login: "Đăng nhập"
-      home: "SampleApp"
+      home: "Trang chủ"
+      account: "Tài khoản"
+      profile: "Hồ sơ"
+      setting: "Cài đặt"
+      log_out: "Đăng xuất"
     footer:
       about: "Về chúng tôi"
       contact: "Liên lạc"
@@ -30,3 +35,18 @@ vi:
     new:
       title: "Đăng ký"
       content: "Đây là trang đăng ký"
+      name: "Tên"
+      password_confirmation: "Nhập lại mật khẩu"
+      sign_up: "Đăng ký"
+    welcome: "Chào mừng bạn đã đến với Thư viện!"
+  sessions:
+    invalid: "Email hoặc mật khẩu không hợp lệ"
+    new:
+      email: "Email"
+      password: "Mật khẩu"
+      new_user?: "Chưa có tài khoản?"
+      sign_up_now: "Đăng ký ngay!"
+  shared:
+    error_messages:
+      form_err: "Có"
+

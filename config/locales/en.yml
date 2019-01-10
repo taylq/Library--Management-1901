@@ -1,14 +1,19 @@
 en:
   languages:
+    language: "Language"
     en: "English"
-    vi: "Vietnam"
+    vi: "Vietnamese"
   app:
-    name: "SampleApp"
+    name: "Thư viện"
   layouts:
     header:
       help: "Help"
       login: "Login"
-      home: "SampleApp"
+      home: "Home"
+      account: "Account"
+      profile: "Profile"
+      setting: "Setting"
+      log_out: "Logout"
     footer:
       about: "About"
       contact: "Contact"
@@ -30,3 +35,17 @@ en:
     new:
       title: "Sign Up"
       content: "This is sign up page"
+      name: "Name"
+      password_confirmation: "Password Confirmation"
+      sign_up: "Sign up"
+    welcome: "Welcome to the Library System!"
+  sessions:
+    invalid: "Invalid email/password combination"
+    new:
+      email: "Email"
+      password: "Password"
+      new_user?: "New user?"
+      sign_up_now: "Signup now!"
+  shared:
+    error_messages:
+      form_err: "The form contains"
