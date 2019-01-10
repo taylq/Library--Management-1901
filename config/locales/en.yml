@@ -17,6 +17,7 @@ en:
     footer:
       about: "About"
       contact: "Contact"
+      help: "Help"
   static_pages:
     home:
       title: "HomePage"
@@ -38,8 +39,10 @@ en:
       title: "Sign Up"
       content: "This is sign up page"
       name: "Name"
-      password_confirmation: "Password Confirmation"
+      password: "Password"
+      password_confirmation: "Confirmation"
       sign_up: "Sign up"
+      sign_in_now: "Login now!"
     welcome: "Welcome to the Library System!"
   sessions:
     invalid: "Invalid email/password combination"
@@ -61,3 +64,5 @@ en:
       last: "Last"
       next: "Next"
       previous: "Previous"
+  footer:
+    footer: "2019, made with favorite by TayLQ"

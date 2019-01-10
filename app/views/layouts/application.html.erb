@@ -4,14 +4,15 @@
     <title><%= full_title yield :page_title %></title>
     <%= render "layouts/default" %>
   </head>
-  <body>
+  <body class="index-page sidebar-collapse">
     <%= render "layouts/header" %>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <%= yield %>
-      <%= render "layouts/footer" %>
+    <div class="main main-raised">
+      <div class="section section-basic">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
     </div>
+      <%= render "layouts/footer" %>
   </body>
 </html>

@@ -17,6 +17,7 @@ vi:
     footer:
       about: "Về chúng tôi"
       contact: "Liên lạc"
+      help: "Giúp đỡ"
   static_pages:
     home:
       title: "Trang chủ"
@@ -38,8 +39,10 @@ vi:
       title: "Đăng ký"
       content: "Đây là trang đăng ký"
       name: "Tên"
+      password: "Mật khẩu"
       password_confirmation: "Nhập lại mật khẩu"
       sign_up: "Đăng ký"
+      sign_in_now: "Đăng nhập ngay!"
     welcome: "Chào mừng bạn đã đến với Thư viện!"
   sessions:
     invalid: "Email hoặc mật khẩu không hợp lệ"
@@ -61,5 +64,5 @@ vi:
       last: "Trang cuối"
       next: "Trang sau"
       previous: "Trang trước"
-
-
+  footer:
+    footer: "2019, Phát triển bởi Lê Quang Tây"

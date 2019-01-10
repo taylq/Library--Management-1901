@@ -1,5 +1,8 @@
 //= require jquery
+//= require popper.min
 //= require bootstrap
+//= require material-kit
+//= require core/bootstrap-material-design.min
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
