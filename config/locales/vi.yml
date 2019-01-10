@@ -4,7 +4,7 @@ vi:
     en: "Tiếng Anh"
     vi: "Tiếng Việt"
   app:
-    name: "Library"
+    name: "Thư viện"
   layouts:
     header:
       help: "Giúp đỡ"
@@ -49,4 +49,7 @@ vi:
   shared:
     error_messages:
       form_err: "Có"
+  admin:
+    welcome: "Chào,"
+    menu: "Menu"
 

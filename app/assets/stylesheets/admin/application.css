@@ -1,0 +1,7 @@
+/*
+ *= require font-awesome
+ *= require admin/admin.scss
+ *= require admin/custom.min
+ *= require_tree .
+ *= require_self
+ */
