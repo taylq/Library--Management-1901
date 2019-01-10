@@ -66,3 +66,6 @@ vi:
       previous: "Trang trước"
   footer:
     footer: "2019, Phát triển bởi Lê Quang Tây"
+  books:
+    all: "Tất cả"
+    search: "Tìm kiếm"

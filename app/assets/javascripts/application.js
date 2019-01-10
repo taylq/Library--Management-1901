@@ -3,6 +3,9 @@
 //= require bootstrap
 //= require material-kit
 //= require core/bootstrap-material-design.min
+//= require imagesloaded.min
+//= require jquery.isotope.min
+//= require main
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
