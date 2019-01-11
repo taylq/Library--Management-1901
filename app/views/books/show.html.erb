@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-2">
+    <%= image_tag @book.image if @book.image? %>
+    <h5><%= @book.name %></h5>
+    <h5><%= @book.status %></h5>
+    <h3><%= t "books.publisher" %></h3>
+    <%= @book.publisher_name %>
+    <%= @book.publisher_phone %>
+    <%= @book.publisher_address %>
+  </div>
+  <div class="col-sm-8" style="text-align: center">
+    <h2><%= @book.name %></h2>
+    <h6><%= @book.content %></h6>
+  </div>
+  <div class="col-sm-2">
+    <h3><%= t "books.author" %></h3>
+    <% @book.book_authors.each do |ba| %>
+      <h4><%= ba.name %></h4>
+      <h6><%= ba.note %></h6>
+    <% end %>
+  </div>
+</div>

@@ -69,3 +69,7 @@ vi:
   books:
     all: "Tất cả"
     search: "Tìm kiếm"
+    find:
+      fail: "Không tìm thấy sách!"
+    publisher: "Nhà xuất bản"
+    author: "Tác giả"

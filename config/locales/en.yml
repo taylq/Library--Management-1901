@@ -69,3 +69,7 @@ en:
   books:
     all: "All"
     search: "Search"
+    find:
+      fail: "Book not found!"
+    publisher: "Publisher"
+    author: "Author"
