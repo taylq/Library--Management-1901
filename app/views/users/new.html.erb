@@ -1,18 +1,53 @@
-<% provide :title, t(".sign_up") %>
-<h1><%= t ".sign_up" %></h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @user do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
-      <%= f.label :name, t(".name") %>
-      <%= f.text_field :name, class: "form-control" %>
-      <%= f.label :email, t("sessions.new.email") %>
-      <%= f.email_field :email, class: "form-control" %>
-      <%= f.label :password, t("sessions.new.password") %>
-      <%= f.password_field :password, class: "form-control" %>
-      <%= f.label :password_confirmation, t(".password_confirmation") %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
-      <%= f.submit t(".sign_up"), class: "btn btn-primary" %>
-    <% end %>
+<div class="section section-signup page-header" style="background-image: url('./assets/img/city.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <div class="card card-login">
+          <%= form_for @user, class: "form" do |f| %>
+            <div class="card-header card-header-primary text-center">
+              <h4 class="card-title"><%= t ".sign_up" %></h4>
+            </div>
+            <div class="card-body">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons"><%= t ".name" %></i>
+                  </span>
+                </div>
+                <%= f.email_field :name, class: "form-control" %>
+              </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons"><%= t ".email" %></i>
+                  </span>
+                </div>
+                <%= f.email_field :email, class: "form-control" %>
+              </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons"><%= t ".password" %></i>
+                  </span>
+                </div>
+                <%= f.email_field :password, class: "form-control" %>
+              </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons"><%= t ".password_confirmation" %></i>
+                  </span>
+                </div>
+                <%= f.email_field :password_confirmation, class: "form-control" %>
+              </div>
+            </div>
+            <div class="footer text-center">
+              <%= f.submit t(".sign_up"), class: "btn btn-primary btn-link btn-wd btn-lg" %>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to t(".sign_in_now"), login_path %>
+      </div>
+    </div>
   </div>
 </div>
