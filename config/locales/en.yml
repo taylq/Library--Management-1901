@@ -66,3 +66,6 @@ en:
       previous: "Previous"
   footer:
     footer: "2019, made with favorite by TayLQ"
+  books:
+    all: "All"
+    search: "Search"

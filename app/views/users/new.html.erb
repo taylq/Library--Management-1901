@@ -14,7 +14,7 @@
                     <i class="material-icons"><%= t ".name" %></i>
                   </span>
                 </div>
-                <%= f.email_field :name, class: "form-control" %>
+                <%= f.text_field :name, class: "form-control" %>
               </div>
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -30,7 +30,7 @@
                     <i class="material-icons"><%= t ".password" %></i>
                   </span>
                 </div>
-                <%= f.email_field :password, class: "form-control" %>
+                <%= f.password_field :password, class: "form-control" %>
               </div>
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -38,7 +38,7 @@
                     <i class="material-icons"><%= t ".password_confirmation" %></i>
                   </span>
                 </div>
-                <%= f.email_field :password_confirmation, class: "form-control" %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
               </div>
             </div>
             <div class="footer text-center">

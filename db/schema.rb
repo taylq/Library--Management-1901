@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_083254) do
   end
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "categogy_id"
+    t.integer "category_id"
     t.integer "publisher_id"
     t.string "name"
     t.text "content"
@@ -77,10 +77,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_083254) do
     t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.datetime "remember_created_at"
     t.string "password_digest"
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
