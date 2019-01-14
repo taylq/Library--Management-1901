@@ -1,22 +1,82 @@
-<div class="row">
-  <div class="col-sm-2">
-    <%= image_tag @book.image if @book.image? %>
-    <h5><%= @book.name %></h5>
-    <h5><%= @book.status %></h5>
-    <h3><%= t "books.publisher" %></h3>
-    <%= @book.publisher.name %>
-    <%= @book.publisher.phone %>
-    <%= @book.publisher.address %>
+<div class="main main-raised">
+  <div class="section section-basic">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <%= image_tag @book.image if @book.image? %>
+          <h5><%= @book.name %></h5>
+          <p class="status col-sm-4"><%= @book.status %></p>
+          <div class="col-sm-12" id="modals">
+            <div class="">
+              <div class="row">
+                <div class="">
+                  <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">
+                    Borrow
+                  </button>
+                  </br>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3><%= t "books.publisher" %></h3>
+          <%= @book.publisher.name %>
+          <%= @book.publisher.phone %>
+          <%= @book.publisher.address %>
+        </div>
+        <div class="col-sm-8" style="text-align: center">
+          <h2><%= @book.name %></h2>
+          <h6><%= @book.content %></h6>
+        </div>
+        <div class="col-sm-2">
+          <h3><%= t "books.author" %></h3>
+          <% @book.book_authors.each do |ba| %>
+            <h4><%= ba.author.name %></h4>
+            <h6><%= ba.author.note %></h6>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-8" style="text-align: center">
-    <h2><%= @book.name %></h2>
-    <h6><%= @book.content %></h6>
-  </div>
-  <div class="col-sm-2">
-    <h3><%= t "books.author" %></h3>
-    <% @book.book_authors.each do |ba| %>
-      <h4><%= ba.author.name %></h4>
-      <h6><%= ba.author.note %></h6>
-    <% end %>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for [current_user, @borrow] do |f| %>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :started_at, class: "label-control" %>
+                <%= f.text_field :started_at, class: "form-control datetimepicker datetimepicker1",
+                  required: true %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :finished_at, class: "label-control" %>
+                <%= f.text_field :finished_at, class: "form-control datetimepicker datetimepicker2",
+                  required: true %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :book_id, value: @book.id %>
+        <%= f.hidden_field :status, value: "waiting" %>
+        <div class="ln_solid col-sm-12"></div>
+        <div class="form-group">
+          <div class="col-md-7 col-sm-7 col-xs-12 col-md-offset-5">
+            <%= f.submit t("buttons.save"), class: "btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,11 +1,17 @@
 <% provide :title, @user.name %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= image_tag @user.gravatar_url, alt: @user.name %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+<div class="main main-raised">
+  <div class="section section-basic">
+    <div class="container">
+      <div class="row">
+        <aside class="col-md-4">
+          <section class="user_info">
+            <h1>
+              <%= image_tag @user.gravatar_url, alt: @user.name %>
+              <%= @user.name %>
+            </h1>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </div>
 </div>

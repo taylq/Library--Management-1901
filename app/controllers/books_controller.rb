@@ -7,7 +7,9 @@ class BooksController < ApplicationController
     @categories = Category.select_attr
   end
 
-  def show; end
+  def show
+    @borrow = current_user.borrows.new
+  end
 
   private
 

@@ -1,12 +1,13 @@
 //= require jquery
 //= require popper.min
-//= require bootstrap
 //= require material-kit
 //= require core/bootstrap-material-design.min
 //= require imagesloaded.min
 //= require jquery.isotope.min
 //= require main
+//= require custom
+//= require plugins/moment.min
+//= require plugins/bootstrap-datetimepicker
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
