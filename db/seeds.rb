@@ -1,5 +1,5 @@
 puts "1. Seeding Admin"
-  User.create!(name: FFaker::Name.name, email: FFaker::Internet.email, password: FFaker::Internet.password, role: 1)
+  User.create!(name: "admin", email: "admin@gmail.com", password: "123456", role: 1)
 
 puts "2. Seeding User"
 20.times do
@@ -31,8 +31,8 @@ Publisher.all.each do |publisher|
 end
 
 puts "7. Seeding Book_Author"
-Author.all.each do |author|
+3.times do
   Book.all.each do |book|
-    BookAuthor.create!(book_id: book.id, author_id: author.id)
+    BookAuthor.create!(book_id: book.id, author_id: rand(1..10))
   end
 end
