@@ -21,6 +21,7 @@ gem "figaro"
 gem "font-awesome-rails"
 gem "bootstrap-kaminari-views"
 gem "config"
+gem "i18n-js"
 
 group :development, :test do
   gem "pry", platforms: [:mri, :mingw, :x64_mingw]

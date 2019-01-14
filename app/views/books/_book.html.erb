@@ -1,0 +1,21 @@
+<div class="projects flat-column-4 hentry <%= book.category.id %>">
+  <div class="project-wrap">
+    <div class="project-thumbnail">
+      <%= image_tag book.image if book.image? %>
+    </div>
+    <div class="project-info">
+      <div class="project-info-wrap">
+        <h3 class="project-title">
+          <%= link_to book.name, book %>
+        </h3>
+        <ul class="project-categories">
+          <li><%= book.publisher_name %></li>
+          <li><%= book.status %></li>
+        </ul>
+        <h6 class="project-buttons">
+          <a href="portfolio-single-list.html" class="flat-button"><%= t "books.quick_view" %></a>
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>

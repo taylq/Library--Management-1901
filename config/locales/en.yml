@@ -73,3 +73,10 @@ en:
       fail: "Book not found!"
     publisher: "Publisher"
     author: "Author"
+    borrow: "Borrow"
+    started_at: "Started at"
+    finished_at: "Finished at"
+    close: "Close"
+    quick_view: "Quick View"
+  datetime:
+    format: "DD/MM/YYYY HH:mm"
