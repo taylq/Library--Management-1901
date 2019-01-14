@@ -8,4 +8,40 @@
   border-radius: 15px;
   color: white;
   font-size: 12px;
+  text-align: center;
+}
+
+.status1{
+  background-color: orange;
+  border-radius: 15px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+
+.avata {
+  width: 160px !important;
+}
+
+.stats{
+  font-size: 15px;
+}
+
+.follow-form {
+  margin-top: -15px;
+  margin-left: -30px;
+}
+
+.body-format{
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.follow-format{
+  background: white;
+  border-radius: 10px;
+}
+
+th {
+  text-align: center;
 }

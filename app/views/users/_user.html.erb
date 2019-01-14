@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <div class="col-sm-1">
+      <%= image_tag user.gravatar_url, class: "img-responsive img-circle", alt: user.name %>
+    </div>
+    <div class="col-sm-11">
+      <%= link_to user.name, user_path(user) %>
+    </div>
+  </td>
+  <td><%= user.email %></td>
+</tr>

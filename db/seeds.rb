@@ -36,3 +36,11 @@ puts "7. Seeding Book_Author"
     BookAuthor.create!(book_id: book.id, author_id: rand(1..10))
   end
 end
+
+puts "8. Seeding Follower"
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

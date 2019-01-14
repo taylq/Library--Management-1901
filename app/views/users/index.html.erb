@@ -1,0 +1,34 @@
+<% provide :title, t("users.index") %>
+<div class="main main-raised">
+  <div class="section section-basic">
+    <div class="container">
+      <div>
+        <p><%= t "users.search" %></p>
+        <%= form_tag users_path, method: :get, class: "" do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag t("books.search"), name: nil, style: "display: none" %>
+        <% end %>
+      </div>
+      <div class="right_col" role="main">
+        <div class="">
+          <div class="row top_tiles" style="margin: 10px 0;">
+            <div class="col-md-12 col-sm-12 col-xs-12 tile">
+              <ul class="users">
+                <table class="table">
+                  <tr>
+                    <th><%= t "users.new.name" %></th>
+                    <th><%= t "sessions.new.email" %></th>
+                  </tr>
+                  <%= render @users %>
+                </table>
+              </ul>
+              <div class="col-sm-8 col-sm-offset-3">
+                <%= paginate @users, theme: "twitter-bootstrap-3" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
