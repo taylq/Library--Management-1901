@@ -32,7 +32,7 @@ end
 
 puts "7. Seeding Book_Author"
 3.times do
-Book.all.each do |book|
+  Book.all.each do |book|
     BookAuthor.create!(book_id: book.id, author_id: rand(1..10))
   end
 end

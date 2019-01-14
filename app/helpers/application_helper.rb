@@ -4,4 +4,8 @@ module ApplicationHelper
     return base_title if title.empty?
     base_title + " | " + title
   end
+
+  def noti
+    @notifications = Notification.all.reverse
+  end
 end

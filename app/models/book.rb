@@ -14,6 +14,8 @@ class Book < ApplicationRecord
     .where "books.name like '%#{search}%' or books.content like '%#{search}%' or publishers.name like '%#{search}%' or authors.name like '%#{search}%'"
   end
 
+  delegate :name, :phone, :address, to: :publisher, prefix: true
+
   class << self
     def search search
       if search

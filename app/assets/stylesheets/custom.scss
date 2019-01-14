@@ -4,8 +4,125 @@
 @import 'color';
 
 .status{
-  background-color: green;
+  background-color: $green;
   border-radius: 15px;
-  color: white;
+  color: $white;
   font-size: 12px;
+}
+
+.notificator {
+  display: inline-block;
+  float: right;
+  margin: 0;
+
+  li {
+    list-style: none;
+    position: relative;
+
+    i {
+      color: $white;
+    }
+  }
+}
+
+.notification-counter {
+  background-color: $cam;
+  border-radius: 3px;
+  color: $white;
+  font: 8px Verdana;
+  left: 25px;
+  padding: 1px 3px;
+  position: absolute;
+  top: -2px;
+}
+
+.notificationlist {
+  li {
+    border-bottom: $ddd 1px solid;
+    position: relative;
+  }
+
+  span {
+    color: $bac;
+    font-size: 8px;
+  }
+
+}
+
+.notificationcontainer {
+  background-color: $white;
+  border: 1px solid $rbga;
+  display: none;
+  margin-left: -253px;
+  overflow: visible;
+  position: absolute;
+  top: 70px;
+  width: 300px;
+  z-index: 0;
+}
+
+.notificationcontainer::before {
+  border: 10px solid $black;
+  border-color: transparent transparent $white;
+  color: transparent;
+  content: '';
+  display: block;
+  height: 0;
+  margin-left: 258px;
+  margin-top: -20px;
+  position: absolute;
+  width: 0;
+}
+
+.notificationtitle {
+  background-color: $blue;
+  border-bottom: 1px solid $cam;
+  color: $cam;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px;
+  position: absolute;
+  width: 298px;
+  z-index: 1;
+}
+
+.notificationsbody {
+  max-height: 300px;
+  min-height: 300px;
+  overflow: auto;
+  padding: 3px 0 0;
+  position: relative;
+  width: 90%;
+
+  ul {
+    padding-left: 0;
+  }
+}
+
+
+.notificationfooter {
+  background-color: $gray-medium-light;
+  border-top: 1px solid $ddd;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 8px;
+  text-align: center;
+}
+
+.notifications {
+  margin-left: 10px;
+  margin-top: 40px;
+}
+
+.iconx {
+  color: $d9;
+  padding: 10px 10px 0 5px;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.lix {
+  margin-left: -35px;
 }

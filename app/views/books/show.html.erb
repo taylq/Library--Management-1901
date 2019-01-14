@@ -19,9 +19,9 @@
             </div>
           </div>
           <h3><%= t "books.publisher" %></h3>
-          <%= @book.publisher.name %>
-          <%= @book.publisher.phone %>
-          <%= @book.publisher.address %>
+          <%= @book.publisher_name %>
+          <%= @book.publisher_phone %>
+          <%= @book.publisher_address %>
         </div>
         <div class="col-sm-8" style="text-align: center">
           <h2><%= @book.name %></h2>
@@ -30,8 +30,8 @@
         <div class="col-sm-2">
           <h3><%= t "books.author" %></h3>
           <% @book.book_authors.each do |ba| %>
-            <h4><%= ba.author.name %></h4>
-            <h6><%= ba.author.note %></h6>
+            <h4><%= ba.name %></h4>
+            <h6><%= ba.note %></h6>
           <% end %>
         </div>
       </div>

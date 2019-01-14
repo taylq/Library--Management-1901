@@ -22,6 +22,36 @@
             </li>
           </ul>
         </li>
+        <li role="presentation" class="dropdown">
+          <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-envelope-o"></i>
+            <span id="notification-counter" class="badge bg-red"><%= noti.count %></span>
+          </a>
+          <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+            <% noti.each do |noti| %>
+              <li>
+              <%= link_to admin_borrows_path do %>
+                  <span>
+                    <span><%= noti.user.name %></span>
+                    <span class="time"><%= noti.created_at.strftime("%I:%M %p %d %b.") %></span>
+                  </span>
+                  <span class="message">
+                    <%= noti.event %>
+                  </span>
+
+              <% end %>
+              </li>
+            <% end %>
+            <li style="text-align: center"><%= link_to "Mark all read", admin_borrows_path %></li>
+
+
+
+
+
+
+
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>

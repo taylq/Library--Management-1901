@@ -11,10 +11,13 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     resources :users do
       resources :borrows
+      resources :notifications
     end
     resources :books, only: %i(index show)
     namespace :admin do
       resources :users
+      resources :borrows
     end
+    mount ActionCable.server => "/cable"
   end
 end
