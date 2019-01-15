@@ -1,50 +1,11 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'font-awesome';
 @import 'color';
 
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-}
-
-.navbar {
-  border-radius: 0;
-  margin-bottom: 7px;
-  padding: 7px 0;
-}
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $eae;
-  color: $color-777;
-}
-
-footer a {
-  color: $color-555;
-}
-
-footer a:hover {
-  color: $color-222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
+.status{
+  background-color: green;
+  border-radius: 15px;
+  color: white;
+  font-size: 12px;
 }

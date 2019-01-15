@@ -6,13 +6,7 @@
   </head>
   <body class="index-page sidebar-collapse">
     <%= render "layouts/header" %>
-    <div class="main main-raised">
-      <div class="section section-basic">
-        <div class="container">
-          <%= yield %>
-        </div>
-      </div>
-    </div>
-      <%= render "layouts/footer" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

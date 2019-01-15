@@ -73,3 +73,10 @@ vi:
       fail: "Không tìm thấy sách!"
     publisher: "Nhà xuất bản"
     author: "Tác giả"
+    borrow: "Mượn sách"
+    started_at: "Ngày mượn"
+    finished_at: "Ngày trả"
+    close: "Đóng"
+    quick_view: "Xem nhanh"
+  datetime:
+    format: "DD/MM/YYYY HH:mm"
