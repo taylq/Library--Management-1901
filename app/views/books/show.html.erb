@@ -5,19 +5,23 @@
         <div class="col-sm-2">
           <%= image_tag @book.image if @book.image? %>
           <h5><%= @book.name %></h5>
-          <p class="status col-sm-4"><%= @book.status %></p>
-          <div class="col-sm-12" id="modals">
-            <div class="">
-              <div class="row">
-                <div class="">
-                  <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">
-                    <%= t "books.borrow" %>
-                  </button>
-                  </br>
+          <% if @book.ready? %>
+            <p class="status col-sm-5"><%= @book.status %></p>
+            <div class="col-sm-12" id="modals">
+              <div class="">
+                <div class="row">
+                  <div class="">
+                    <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">
+                      <%= t "books.borrow" %>
+                    </button>
+                    </br>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% else %>
+            <p class="status1 col-sm-6"><%= @book.status %></p></br>
+          <% end %>
           <h3><%= t "books.publisher" %></h3>
           <%= @book.publisher_name %>
           <%= @book.publisher_phone %>

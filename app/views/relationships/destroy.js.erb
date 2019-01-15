@@ -1,0 +1,2 @@
+$("#follow_form").html("<%= j render("users/follow", active_relationships: @active_relationships) %>");
+$("#followers").html("<%= @user.followers.count %>");

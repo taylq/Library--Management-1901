@@ -6,16 +6,19 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <% if logged_in? %>
-          <li class="dropdown nav-item">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-              <%= t ".account" %>
-            </a>
-            <div class="dropdown-menu dropdown-with-icons">
-              <%= link_to t(".profile"), current_user, class: "dropdown-item" %>
-              <%= link_to t(".settings"), "#", class: "dropdown-item" %>
-              <%= link_to t(".log_out"), logout_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
+            <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <%= t ".account" %>
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <%= link_to t(".profile"), current_user, class: "dropdown-item" %>
+                <%= link_to t(".settings"), "#", class: "dropdown-item" %>
+                <%= link_to t(".log_out"), logout_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+            <li class="nav-item">
+              <%= link_to t(".users"), current_user.admin? ? admin_users_path : users_path, class: "nav-link" %>
+            </li>
           <% else %>
             <li class="nav-item"><%= link_to t(".login"), login_path, class: "nav-link" %></li>
           <% end %>

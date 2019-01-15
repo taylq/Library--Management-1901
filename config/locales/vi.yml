@@ -14,6 +14,8 @@ vi:
       profile: "Hồ sơ"
       setting: "Cài đặt"
       log_out: "Đăng xuất"
+      users: "Người dùng"
+      books: "Sách"
     footer:
       about: "Về chúng tôi"
       contact: "Liên lạc"
@@ -33,6 +35,12 @@ vi:
       title: "Giúp đỡ"
       content: "Bận cần sự giúp đỡ của chúng tôi ?"
   users:
+    following: "Đang theo dõi"
+    followers: "Người theo dõi"
+    view_profile: "Xem trang cá nhân của tôi"
+    unfollow: "Bỏ theo dõi"
+    follow: "Theo dõi"
+    search: "Tìm kiếm"
     index: "Quản lý người dùng"
     role: "Vai trò"
     new:
