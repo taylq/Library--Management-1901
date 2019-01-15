@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :find_book, except: %i(index)
+  before_action :status_follow_book, only: %i(show)
 
   def index
     @books = Book.select_attr.page(params[:page]).per(Settings.book_per_page)
@@ -8,7 +9,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @borrow = current_user.borrows.new
+    @borrow = current_user.borrows.new if logged_in?
   end
 
   private
@@ -17,5 +18,10 @@ class BooksController < ApplicationController
     return if @book = Book.find_by(id: params[:id])
     flash[:danger] = t "books.find.fail"
     redirect_to books_path
+  end
+
+  def status_follow_book
+    return unless logged_in?
+    @follow_book = @book.follow_books.build || @book.follow_books.find_by(book_id: @book.id)
   end
 end
