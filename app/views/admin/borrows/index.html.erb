@@ -1,0 +1,31 @@
+<div class="right_col" role="main">
+  <h1><%= t "users.index" %></h1>
+  <div class="">
+    <div class="row top_tiles" style="margin: 10px 0;">
+      <div class="col-md-12 col-sm-12 col-xs-12 tile">
+        <%= form_tag admin_borrows_path, method: :get do |f| %>
+          <td class="field" style="width: 80px;">
+            <%= select_tag :status, options_for_select(status_choice, selected: params[:status]) %>
+            <%= text_field_tag :search, params[:search] %>
+          </td>
+          <td><%= submit_tag t("books.search"), class: "btn btn-info" %></td>
+        <% end %>
+        <% if @borrows.any? %>
+          <ul class="users">
+            <table class="table">
+              <tr>
+                <th><%= t "admin.users" %></th>
+                <th><%= t "layouts.header.books" %></th>
+                <th><%= t "borrows.start" %></th>
+                <th><%= t "borrows.finished" %></th>
+                <th><%= t "borrows.status" %></th>
+                <th></th>
+              </tr>
+              <%= render @borrows %>
+            </table>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

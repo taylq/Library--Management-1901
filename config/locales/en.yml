@@ -93,3 +93,9 @@ en:
     format: "DD/MM/YYYY HH:mm"
   borrows:
     request: "%{user_name} send request to borrow book"
+    status: "Status"
+    change: "Change"
+  waiting: "Waiting"
+  approved: "Approved"
+  disapproved: "Disapproved"
+  done: "Done"
