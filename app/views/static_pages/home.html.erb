@@ -2,10 +2,29 @@
 <div class="main main-raised">
   <div class="section section-basic">
     <div class="container">
-      <div class="center jumbotron">
-        <h1><%= t(".content") %></h1>
-        <%= link_to t(".button"), "#", class: "btn btn-lg btn-primary" %>
+      <div>
+        <%= form_tag books_path, method: :get, class: "col-sm-4 offset-sm-8" do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag t("books.search"), name: nil, style: "display: none" %>
+        <% end %>
       </div>
+      <% if @books.any? %>
+        <div class="flat-projects">
+          <ul class="projects-filter style1">
+            <li class="active"><a data-filter="*" href="#"><%= t "books.all" %></a></li>
+            <% @categories.each do |category| %>
+              <li><%= link_to category.name, "#",
+                data: {filter: ".#{category.id}"} %></li>
+            <% end %>
+          </ul>
+          <div class="projects-items">
+            <%= render @books %>
+          </div>
+        </div>
+        <div class="col-sm-6 offset-sm-3">
+          <%= paginate @books, theme: "twitter-bootstrap-3" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,0 +1,2 @@
+$('#follow_form').html('<%= j render("books/follow", follow_book: @follow_book) %>');
+$('#followers').html('<%= @book.follow_books.count %>');

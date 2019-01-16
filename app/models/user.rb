@@ -10,6 +10,7 @@ class User < ApplicationRecord
     foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :follow_books, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -47,6 +48,16 @@ class User < ApplicationRecord
         User.select_attr
       end
     end
+  end
+
+  def feed
+    Book.where "category_id IN (SELECT category_id FROM books JOIN follow_books
+      ON books.id = follow_books.book_id WHERE follow_books.user_id = ?)", id
+  end
+
+  def categories_of_feed
+    Category.where "id IN (SELECT category_id FROM books JOIN follow_books
+      ON books.id = follow_books.book_id WHERE follow_books.user_id = ?)", id
   end
 
   def follow other_user

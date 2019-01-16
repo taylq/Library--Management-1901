@@ -1,0 +1,3 @@
+<%= form_for follow_book, html: {method: :delete}, remote: true do |f| %>
+  <%= f.submit t("users.unfollow"), class: "btn btn-primary" %>
+<% end %>
