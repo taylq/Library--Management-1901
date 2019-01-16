@@ -43,6 +43,8 @@ en:
     search: "Search"
     index: "Manage users"
     role: "Role"
+    like: "Like"
+    dislike: "Dislike"
     new:
       title: "Sign Up"
       content: "This is sign up page"

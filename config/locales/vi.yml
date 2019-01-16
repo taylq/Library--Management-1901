@@ -43,6 +43,8 @@ vi:
     search: "Tìm kiếm"
     index: "Quản lý người dùng"
     role: "Vai trò"
+    like: "Thích"
+    dislike: "Bỏ thích"
     new:
       title: "Đăng ký"
       content: "Đây là trang đăng ký"

@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   has_many :borrows, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :follow_books, dependent: :destroy
+  has_many :like_books, dependent: :destroy
 
   belongs_to :category
   belongs_to :publisher
