@@ -12,10 +12,11 @@ vi:
       home: "Trang chủ"
       account: "Tài khoản"
       profile: "Hồ sơ"
-      setting: "Cài đặt"
+      settings: "Cài đặt"
       log_out: "Đăng xuất"
       users: "Người dùng"
       books: "Sách"
+      read_all: "Đánh dấu tất cả đã đọc"
     footer:
       about: "Về chúng tôi"
       contact: "Liên lạc"
@@ -90,3 +91,5 @@ vi:
     quick_view: "Xem nhanh"
   datetime:
     format: "DD/MM/YYYY HH:mm"
+  borrows:
+    request: "%{user_name} muốn mượn sách"

@@ -12,10 +12,11 @@ en:
       home: "Home"
       account: "Account"
       profile: "Profile"
-      setting: "Setting"
+      settings: "Setting"
       log_out: "Logout"
       users: "Users"
       books: "Books"
+      read_all: "Mark all read"
     footer:
       about: "About"
       contact: "Contact"
@@ -90,3 +91,5 @@ en:
     quick_view: "Quick View"
   datetime:
     format: "DD/MM/YYYY HH:mm"
+  borrows:
+    request: "%{user_name} send request to borrow book"

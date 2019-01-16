@@ -4,4 +4,8 @@ module ApplicationHelper
     return base_title if title.empty?
     base_title + " | " + title
   end
+
+  def notifications
+    Notification.select_attr
+  end
 end

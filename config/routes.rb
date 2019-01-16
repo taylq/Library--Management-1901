@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :books, only: %i(index show)
     namespace :admin do
       resources :users
+      resources :borrows
     end
   end
 end
