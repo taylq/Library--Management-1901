@@ -1,0 +1,3 @@
+<%= form_for like_book, html: {method: :delete}, remote: true do |f| %>
+  <%= f.submit t("users.dislike"), class: "btn btn-primary" %>
+<% end %>

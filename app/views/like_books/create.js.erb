@@ -1,0 +1,3 @@
+$('#like_form').html('<%= j render("books/dislike",
+  like_book: @like_book)  %>');
+$('#likers').html('<%= @book.like_books.count %>');

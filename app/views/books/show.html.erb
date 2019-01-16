@@ -8,9 +8,15 @@
           <section class="stats col-sm-3">
             <%= render "follow_books/stats" %>
           </section>
+          <section class="stats col-sm-3">
+            <%= render "like_books/stats" %>
+          </section>
           <% if logged_in? %>
             <section class="col-sm-7 follow-form">
-              <%= render "follow_form", follow_book: @follow_book if logged_in? %>
+              <%= render "follow_form", follow_book: @follow_book %>
+            </section>
+            <section class="col-sm-7 follow-form">
+              <%= render "like_form", like_book: @like_book %>
             </section>
             <% if @book.ready? %>
               <p class="status col-sm-5"><%= @book.status %></p>

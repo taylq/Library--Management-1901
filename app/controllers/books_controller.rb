@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :find_book, except: %i(index)
-  before_action :status_follow_book, only: %i(show)
+  before_action :status_follow_book, :status_like_book, only: %i(show)
 
   def index
     @books = Book.select_attr.page(params[:page]).per(Settings.book_per_page)
@@ -23,5 +23,10 @@ class BooksController < ApplicationController
   def status_follow_book
     return unless logged_in?
     @follow_book = @book.follow_books.build || @book.follow_books.find_by(book_id: @book.id)
+  end
+
+  def status_like_book
+    return unless logged_in?
+    @like_book = @book.like_books.build || @book.like_books.find_by(book_id: @book.id)
   end
 end

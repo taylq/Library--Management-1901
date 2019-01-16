@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :follow_books, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
+    resources :like_books, only: [:create, :destroy]
 
     resources :books, only: %i(index show)
     namespace :admin do
