@@ -28,6 +28,9 @@ module Admin
         @book.update_attributes status: Book.statuses[:borrowed]
         @borrows = Borrow.find_by_status @book.id, @borrow.finished_at
         @borrows.update status: Settings.disapproved
+        @borrows.each do |borrow|
+          DisapprovedRequestMailer.delay.disapproved_request_email borrow.user
+        end
       elsif params[:borrow][:status] == Settings.done
         @book.update_attributes status: Book.statuses[:ready]
       end

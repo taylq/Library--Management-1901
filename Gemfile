@@ -22,6 +22,9 @@ gem "font-awesome-rails"
 gem "bootstrap-kaminari-views"
 gem "config"
 gem "i18n-js"
+gem "delayed_job"
+gem "delayed_job_active_record"
+gem "whenever", require: false
 
 group :development, :test do
   gem "pry", platforms: [:mri, :mingw, :x64_mingw]
