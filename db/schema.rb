@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_16_020831) do
+ActiveRecord::Schema.define(version: 2019_01_16_023923) do
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(version: 2019_01_16_020831) do
     t.index ["book_id", "user_id"], name: "index_like_books_on_book_id_and_user_id", unique: true
     t.index ["book_id"], name: "index_like_books_on_book_id"
     t.index ["user_id"], name: "index_like_books_on_user_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "event"
+    t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "publishers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

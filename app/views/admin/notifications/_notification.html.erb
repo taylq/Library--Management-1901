@@ -1,0 +1,11 @@
+<li>
+  <%= link_to admin_borrows_path do %>
+    <span>
+      <span><%= notification.user.name %></span>
+      <span class="time"><%= notification.created_at.strftime("%I:%M %p %d %b.") %></span>
+    </span>
+    <span class="message">
+      <%= notification.event %>
+    </span>
+  <% end %>
+</li>
