@@ -18,4 +18,13 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  def send_mail_return_book
+    Borrow.select_attr.each do |borrow|
+      if borrow.finished_at < DateTime.now.tomorrow.to_date
+        user = User.find_by id: borrow.user_id
+        ReturnBookMailer.return_book_email(user).deliver_now
+      end
+    end
+  end
 end

@@ -5,6 +5,7 @@ en:
     vi: "Vietnamese"
   app:
     name: "Library System"
+    return_book: "Return Book"
   layouts:
     header:
       help: "Help"
@@ -99,3 +100,6 @@ en:
   approved: "Approved"
   disapproved: "Disapproved"
   done: "Done"
+  mailer:
+    hi: "Hi"
+    content: "Tomorrow is the book return term, please return the book to the library. Thanksyou."

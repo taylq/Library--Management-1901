@@ -5,6 +5,7 @@ vi:
     vi: "Tiếng Việt"
   app:
     name: "Thư viện"
+    return_book: "Trả sách"
   layouts:
     header:
       help: "Giúp đỡ"
@@ -99,3 +100,6 @@ vi:
   approved: "Chấp nhận"
   disapproved: "Không chấp nhận"
   done: "Đã trả sách"
+  mailer:
+    hi: "Chào"
+    content: "Ngày mai là đến hạn trả sách, bạn vui lòng mang sách đến trả lại cho thư viện, Cảm ơn bạn."
