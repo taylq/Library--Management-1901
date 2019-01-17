@@ -7,13 +7,11 @@ class BorrowsController < ApplicationController
   def new; end
 
   def create
-    @borrow = Borrow.new borrow_params
-    if @borrow.save
-      log_in @borrow
-      flash[:success] = t "borrows.created"
-      redirect_to user_borrows_path current_user
+    if Borrow.check_record(params[:borrow][:user_id], params[:borrow][:book_id]).present?
+      flash[:danger] = t "borrows.already.exist"
+      redirect_to books_path
     else
-      render :new
+      create_borrow
     end
   end
 
@@ -22,5 +20,16 @@ class BorrowsController < ApplicationController
   def borrow_params
     params.require(:borrow).permit :user_id, :book_id, :started_at,
       :finished_at, :status
+  end
+
+  def create_borrow
+    @borrow = Borrow.new borrow_params
+    if @borrow.save
+      flash[:success] = t "borrows.created"
+      redirect_to book_path @borrow.book
+    else
+      flash[:danger] = t "borrows.created.fail"
+      redirect_to books_path
+    end
   end
 end

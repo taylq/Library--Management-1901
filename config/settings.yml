@@ -1,2 +1,6 @@
 per_page: 5
 book_per_page: 20
+approved: "approved"
+disapproved: "disapproved"
+done: "done"
+waiting: "waiting"

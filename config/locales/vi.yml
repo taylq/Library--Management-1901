@@ -93,3 +93,9 @@ vi:
     format: "DD/MM/YYYY HH:mm"
   borrows:
     request: "%{user_name} muốn mượn sách"
+    status: "Trạng thái"
+    change: "Thay đổi"
+  waiting: "Đang đợi"
+  approved: "Chấp nhận"
+  disapproved: "Không chấp nhận"
+  done: "Đã trả sách"
