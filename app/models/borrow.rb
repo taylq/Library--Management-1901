@@ -20,6 +20,7 @@ class Borrow < ApplicationRecord
     .where("books.name like '%#{search}%' or users.name like '%#{search}%'")
   }
   scope :check_record, ->(user_id, book_id){where user_id: user_id, book_id: book_id, status: [:waiting] }
+  scope :status_approved, ->{where(status: [:approved]).where("finished_at < ?", DateTime.now)}
 
   class << self
     def search search, status
