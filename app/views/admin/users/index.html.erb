@@ -4,6 +4,13 @@
   <div class="">
     <div class="row top_tiles" style="margin: 10px 0;">
       <div class="col-md-12 col-sm-12 col-xs-12 tile">
+        <div>
+          <p><%= t "users.search" %></p>
+          <%= form_tag admin_users_path, method: :get do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag t("books.search") %>
+          <% end %>
+        </div>
         <ul class="users">
           <table class="table">
             <tr>
@@ -18,6 +25,11 @@
         <div class="col-sm-8 col-sm-offset-3">
           <%= paginate @users, theme: "twitter-bootstrap-3" %>
         </div>
+        <p>
+          <%= t "export.download" %>
+          <%= link_to t("export.csv"), admin_users_path(format: "csv", search: params[:search]) %> |
+          <%= link_to t("export.excel"), admin_users_path(format: "xls", search: params[:search]) %>
+        </p>
       </div>
     </div>
   </div>

@@ -26,5 +26,15 @@ class Book < ApplicationRecord
         Book.select_attr
       end
     end
+
+    def to_csv
+      CSV.generate do |csv|
+        attributes = %w{id name category_id publisher_id content number_of_page status}
+        csv << attributes
+        all.each do |book|
+          csv << book.attributes.values_at(*attributes)
+        end
+      end
+    end
   end
 end
