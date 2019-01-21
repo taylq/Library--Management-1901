@@ -3,7 +3,12 @@ module Admin
     before_action :find_user, except: %i(index new create)
 
     def index
-      @users = User.select_attr.page(params[:page]).per(Settings.per_page)
+      @users = User.select_attr.page(params[:page]).per(Settings.per_page).search params[:search]
+      respond_to do |format|
+        format.html {}
+        format.csv { send_data User.search(params[:search]).to_csv }
+        format.xls { send_data User.search(params[:search]).to_csv }
+      end
     end
 
     def new

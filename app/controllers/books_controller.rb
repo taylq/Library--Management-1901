@@ -6,6 +6,11 @@ class BooksController < ApplicationController
     @books = Book.select_attr.page(params[:page]).per(Settings.book_per_page)
       .search params[:search]
     @categories = Category.select_attr
+    respond_to do |format|
+      format.html {}
+      format.csv { send_data Book.search(params[:search]).to_csv }
+      format.xls { send_data Book.search(params[:search]).to_csv }
+    end
   end
 
   def show

@@ -105,3 +105,7 @@ en:
     hi: "Hi"
     content: "Tomorrow is the book return term, please return the book to the library. Thanks you!"
     disapproved_request: "Your borrow book request is not accepted because it has been borrowed by someone else, please borrow it at another time. Thanks you!"
+  export:
+    download: "Download:"
+    csv: "CSV"
+    excel: "Excel"

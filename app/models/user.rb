@@ -50,6 +50,16 @@ class User < ApplicationRecord
         User.select_attr
       end
     end
+
+    def to_csv
+      CSV.generate do |csv|
+        attributes = %w{id name email role}
+        csv << attributes
+        all.each do |user|
+          csv << user.attributes.values_at(*attributes)
+        end
+      end
+    end
   end
 
   def feed
