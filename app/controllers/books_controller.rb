@@ -14,7 +14,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @borrow = current_user.borrows.new if logged_in?
+    @comments = @book.comments.order_comment
+    return unless logged_in?
+    @borrow = current_user.borrows.new
+    @comment = current_user.comments.build
   end
 
   private

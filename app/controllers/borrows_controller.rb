@@ -8,7 +8,7 @@ class BorrowsController < ApplicationController
 
   def create
     if Borrow.check_record(params[:borrow][:user_id], params[:borrow][:book_id]).present?
-      flash[:danger] = t "borrows.already.exist"
+      flash[:danger] = t "borrows.already_exist"
       redirect_to books_path
     else
       create_borrow
@@ -28,7 +28,7 @@ class BorrowsController < ApplicationController
       flash[:success] = t "borrows.created"
       redirect_to book_path @borrow.book
     else
-      flash[:danger] = t "borrows.created.fail"
+      flash[:danger] = t "borrows.created_fail"
       redirect_to books_path
     end
   end

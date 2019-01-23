@@ -48,6 +48,9 @@ vi:
     role: "Vai trò"
     like: "Thích"
     dislike: "Bỏ thích"
+    find_fail: "Không tìm thấy người dùng."
+    likers: "Người thích"
+    edit: "Chỉnh sửa"
     new:
       title: "Đăng ký"
       content: "Đây là trang đăng ký"
@@ -71,6 +74,7 @@ vi:
     welcome: "Chào,"
     menu: "Menu"
     users: "Người dùng"
+    borows: "Mượn sách"
   views:
     pagination:
       first: "Trang đầu"
@@ -80,6 +84,8 @@ vi:
   footer:
     footer: "2019, Phát triển bởi Lê Quang Tây"
   books:
+    ready: "Có thể mượn"
+    borrowed: "Không thể mượn"
     all: "Tất cả"
     search: "Tìm kiếm"
     find:
@@ -97,6 +103,10 @@ vi:
     request: "%{user_name} muốn mượn sách"
     status: "Trạng thái"
     change: "Thay đổi"
+    already_exist: "Bạn đã gửi yêu cầu mượn sách này rồi, vui lòng đợi phản hồi từ admin."
+    created: "Mượn sách thành công!"
+    created_fail: "Mượn sách thất bại!"
+    index: "Quản lý yêu cầu mượn sách"
   waiting: "Đang đợi"
   approved: "Chấp nhận"
   disapproved: "Không chấp nhận"
@@ -109,3 +119,13 @@ vi:
     download: "Tải xuống:"
     csv: "CSV"
     excel: "Excel"
+  comments:
+    delete: "Xóa"
+    you_sure: "Bạn chắc chắn muốn xóa?"
+    comment: "Bình luận"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  time:
+    formats:
+      default: "%H:%M - %d/%m/%y"
