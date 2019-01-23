@@ -1,5 +1,5 @@
 <div class="stats">
-  <%= link_to like_books_path @book do %>
+  <%= link_to like_books_path(@book), class: "follow" do %>
     <strong id="likers" class="stat">
       <%= @book.like_books.count %>
     </strong>

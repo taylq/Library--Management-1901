@@ -90,8 +90,8 @@ vi:
     search: "Tìm kiếm"
     find:
       fail: "Không tìm thấy sách!"
-    publisher: "Nhà xuất bản"
-    author: "Tác giả"
+    publisher: "Nhà xuất bản: "
+    author: "Tác giả: "
     borrow: "Mượn sách"
     started_at: "Ngày mượn"
     finished_at: "Ngày trả"
@@ -129,3 +129,6 @@ vi:
   time:
     formats:
       default: "%H:%M - %d/%m/%y"
+  publishers:
+    phone: "SĐT: "
+    address: "Địa chỉ: "

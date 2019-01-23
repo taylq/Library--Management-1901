@@ -1,10 +1,10 @@
 <%= form_for [book, @comment], html: {id: "new_message"}, remote: true do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class="field col-sm-10">
-    <%= f.text_field :content, placeholder: t("comments.comment"), class: "message_content" %>
+    <%= f.text_field :content, class: "field-search message_content" %>
   </div>
   <div class="field col-sm-2">
-    <%= f.submit t("comments.comment") %>
+    <%= f.submit t("comments.comment"), class: "btn btn-primary" %>
   </div>
   </br>
 <% end %>

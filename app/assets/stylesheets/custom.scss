@@ -3,22 +3,6 @@
 @import 'font-awesome';
 @import 'color';
 
-.status{
-  background-color: green;
-  border-radius: 15px;
-  color: white;
-  font-size: 12px;
-  text-align: center;
-}
-
-.status1{
-  background-color: orange;
-  border-radius: 15px;
-  color: white;
-  font-size: 12px;
-  text-align: center;
-}
-
 .avata {
   width: 160px !important;
 }
@@ -33,15 +17,192 @@
 }
 
 .body-format{
-  background: #ddd;
+  background: $eae;
   border-radius: 10px;
 }
 
 .follow-format{
-  background: white;
+  background: $white;
   border-radius: 10px;
 }
 
 th {
   text-align: center;
+}
+
+.custom-background {
+  background: -webkit-linear-gradient(135deg, $xanh-rbga, $tim-rbga);
+  border-radius: 7px;
+}
+
+.background-container{
+  background: -webkit-linear-gradient(135deg, $xanh-rbga, $tim-rbga);
+}
+
+.search-form {
+  padding-right: 20px;
+  margin-top: -10px;
+}
+
+.field-search {
+  background: $color-777 !important;
+}
+
+.book_items{
+  background: $white;
+  border-radius: 7px;
+}
+
+.project-categories li {
+  color: $tim;
+}
+
+.follow{
+  background-color: $white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.content{
+  background: -webkit-linear-gradient(135deg, $xanh-rbga, $tim-rbga);
+  margin-top: 20px;
+  border-radius: 7px;
+
+  p{
+    color: $black;
+    padding: 15px;
+  }
+}
+
+#new_message{
+  padding-bottom: 35px;
+  margin-top: 35px;
+}
+
+.comments {
+  padding: 15px;
+}
+
+.style-comment{
+  margin-bottom: -25px;
+  padding-left: 0px !important;
+  margin-top: -5px;
+}
+
+label{
+  color: $tim !important;
+}
+
+.book-exort {
+  border-radius: 7px;
+  margin-bottom: 35px;
+  padding-left: 10px;
+  padding-top: 3px;
+
+  .export{
+    background: $white;
+    border-radius: 7px;
+  }
+}
+
+.publisher{
+  font-weight: bold; color: $tim;
+  .publisher-info{
+    padding:0 5px 0 5px;
+    color: $tim
+  }
+}
+
+.padding-custom{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.book-name{
+  color: $tim;
+  margin-top: -1px;
+}
+
+.style-btn{
+  padding: 5px 5px 0px 5px;
+  margin-top: -5px;
+}
+
+.content-book{
+  background: $white;
+  margin-top: 15px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+.comment-content{
+  background: $white;
+  border-radius: 7px;
+}
+
+.time-comment{
+  font-size: 11px;
+}
+
+.solid{
+  border-bottom: 1px solid $tim-rbga;
+}
+
+.style-container{
+  background: $white;
+  border-radius: 7px;
+}
+
+.user-name{
+  color: $white;
+  margin-top: -2px
+}
+
+.project-thumbnail {
+  img{
+    width: 235px;
+    height: 345px;
+  }
+}
+
+.project-wrap1{
+  border: 10px solid #ddd;
+    border-radius: 7px;
+}
+
+.margin5 {
+  margin-top: 5px;
+}
+
+.style-display{
+  display: none;
+}
+
+.style-padding{
+  padding-top: 20px;
+}
+
+.green{
+  color: $green;
+}
+
+.red{
+  color: $red;
+}
+
+.padding10{
+  padding-top: 10px;
+}
+
+.padding15{
+  padding-top: 15px;
+}
+
+.margin60{
+  margin-top: -60px;
+}
+
+.margin10{
+  margin: 10px 0;
 }

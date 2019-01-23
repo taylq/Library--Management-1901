@@ -1,28 +1,26 @@
 <% provide :page_title, t(".title") %>
 <div class="main main-raised">
-  <div class="section section-basic">
+  <div class="section section-basic custom-background">
     <div class="container">
-      <div>
-        <%= form_tag books_path, method: :get, class: "col-sm-4 offset-sm-8" do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag t("books.search"), name: nil, style: "display: none" %>
-        <% end %>
-      </div>
       <% if @books.any? %>
         <div class="flat-projects">
-          <ul class="projects-filter style1">
+          <ul class="projects-filter style1 margin60">
+            <%= form_tag books_path, method: :get, class: "pull-right search-form" do %>
+              <%= text_field_tag :search, params[:search], class: "field-search" %>
+              <%= submit_tag t("books.search"), name: nil, class: "style-display" %>
+            <% end %>
             <li class="active"><a data-filter="*" href="#"><%= t "books.all" %></a></li>
             <% @categories.each do |category| %>
               <li><%= link_to category.name, "#",
                 data: {filter: ".#{category.id}"} %></li>
             <% end %>
           </ul>
-          <div class="projects-items">
+          <div class="projects-items book_items">
             <%= render @books %>
           </div>
-        </div>
-        <div class="col-sm-6 offset-sm-3">
-          <%= paginate @books, theme: "twitter-bootstrap-3" %>
+          <div class="col-sm-6 offset-sm-4">
+            <%= paginate @books, theme: "twitter-bootstrap-3" %>
+          </div>
         </div>
       <% end %>
     </div>

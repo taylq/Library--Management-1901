@@ -1,17 +1,20 @@
 <% provide :title, t("users.index") %>
 <div class="main main-raised">
-  <div class="section section-basic">
-    <div class="container">
-      <div>
-        <p><%= t "users.search" %></p>
-        <%= form_tag users_path, method: :get, class: "" do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag t("books.search"), name: nil, style: "display: none" %>
-        <% end %>
+  <div class="section section-basic custom-background">
+    <div class="container style-container">
+      <div class="row">
+        <div class="pull-right search-form col-sm-4 offset-sm-8">
+          <%= form_tag users_path, method: :get do %>
+          </br>
+            <%= label_tag t "users.search" %>
+            <%= text_field_tag :search, params[:search], class: "field-search" %>
+            <%= submit_tag t("books.search"), name: nil, class: "style-display" %>
+          <% end %>
+        </div>
       </div>
       <div class="right_col" role="main">
-        <div class="">
-          <div class="row top_tiles" style="margin: 10px 0;">
+        <div>
+          <div class="row top_tiles margin10">
             <div class="col-md-12 col-sm-12 col-xs-12 tile">
               <ul class="users">
                 <table class="table">

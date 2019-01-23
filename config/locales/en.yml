@@ -90,8 +90,8 @@ en:
     search: "Search"
     find:
       fail: "Book not found!"
-    publisher: "Publisher"
-    author: "Author"
+    publisher: "Publisher: "
+    author: "Author: "
     borrow: "Borrow"
     started_at: "Started at"
     finished_at: "Finished at"
@@ -129,3 +129,6 @@ en:
   time:
     formats:
       default: "%H:%M - %d/%m/%y"
+  publishers:
+    phone: "Phone: "
+    address: "Address: "

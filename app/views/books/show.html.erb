@@ -3,63 +3,74 @@
     <div class="container">
       <%= render "layouts/flash" %>
       <div class="row">
-        <div class="col-sm-2">
-          <%= image_tag @book.image if @book.image? %>
-          <h5><%= @book.name %></h5>
-          <section class="stats col-sm-3">
-            <%= render "follow_books/stats" %>
-          </section>
-          <section class="stats col-sm-3">
-            <%= render "like_books/stats" %>
-          </section>
-          <% if logged_in? %>
-            <section class="col-sm-7 follow-form">
-              <%= render "follow_form", follow_book: @follow_book %>
-            </section>
-            <section class="col-sm-7 follow-form">
-              <%= render "like_form", like_book: @like_book %>
-            </section>
-            <% if @book.ready? %>
-              <p class="status col-sm-5"><%= t "books.#{@book.status}" %></p>
-              <div class="col-sm-12" id="modals">
-                <div class="">
-                  <div class="row">
-                    <div class="">
-                      <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">
-                        <%= t "books.borrow" %>
-                      </button>
-                      </br>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% else %>
-              <p class="status1 col-sm-6"><%= t "books.#{@book.status}" %></p></br>
-            <% end %>
-          <% end %>
-          <h3><%= t "books.publisher" %></h3>
-          <%= @book.publisher_name %>
-          <%= @book.publisher_phone %>
-          <%= @book.publisher_address %>
-        </div>
-        <div class="col-sm-8" style="text-align: center">
-          <h2><%= @book.name %></h2>
-          <h6><%= @book.content %></h6>
-          <div id="load_comment-<%= @book.id %>">
-            <%= render @comments %>
+        <div class="col-sm-12 custom-background">
+          <div class="col-sm-3 padding-custom">
+            <%= image_tag @book.image if @book.image? %>
           </div>
-          <% if logged_in? %>
-            <div id="comment_form">
-              <%= render "comments/form", book: @book %>
+          <div class="col-sm-9 style-padding">
+            <div class="row">
+              <h1 class="book-name"><%= @book.name %></h1>
             </div>
-          <% end %>
+            <div class="row">
+              <p class="publisher"><%= t "books.author" %></p>
+              <% @book.book_authors.each do |ba| %>
+                <p class="publisher-info"><%= ba.name %></p>
+              <% end %>
+            </div>
+            <div class="row">
+              <p class="publisher"><%= t "books.publisher" %></p>
+              <p class="publisher-info"><%= @book.publisher_name %></p></br>
+              <p class="publisher-info"><%= t "publishers.phone" %><%= @book.publisher_phone %></p></br>
+              <p class="publisher-info"><%= t "publishers.address" %><%= @book.publisher_address %></p></br>
+            </div>
+            <div class="row">
+              <section class="stats col-sm-3">
+                <%= render "follow_books/stats" %>
+              </section>
+              <section class="stats col-sm-2">
+                <%= render "like_books/stats" %>
+              </section>
+            </div>
+            <% if logged_in? %>
+              <div class="row">
+                <section class="col-sm-3">
+                  <%= render "follow_form", follow_book: @follow_book %>
+                </section>
+                <section class="col-sm-2">
+                  <%= render "like_form", like_book: @like_book %>
+                </section>
+              </div>
+              <div>
+                <% if @book.ready? %>
+                  <div id="modals">
+                      <div class="row">
+                        <i class="fas fa-check-double col-sm-3 green"> <%= t "books.#{@book.status}" %></i>
+                        <button class="btn btn-primary slyte-btn" data-toggle="modal" data-target="#myModal">
+                          <%= t "books.borrow" %>
+                        </button>
+                      </div>
+                  </div>
+                <% else %>
+                  <i class="fas fa-exclamation col-sm-3 red"> <%= t "books.#{@book.status}" %></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="col-sm-2">
-          <h3><%= t "books.author" %></h3>
-          <% @book.book_authors.each do |ba| %>
-            <h4><%= ba.name %></h4>
-            <h6><%= ba.note %></h6>
-          <% end %>
+        <div class="col-sm-12 content">
+          <div class="content-book">
+            <p><%= @book.content %></p>
+          </div>
+          <div class="comment-content">
+            <div id="load_comment-<%= @book.id %>" class="container">
+              <%= render @comments %>
+            </div>
+            <% if logged_in? %>
+              <div id="comment_form" class="offset-sm-1">
+                <%= render "comments/form", book: @book, user: current_user %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
