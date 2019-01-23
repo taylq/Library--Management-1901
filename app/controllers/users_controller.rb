@@ -11,7 +11,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show; end
+  def show
+    @books = Book.select_attr.page(params[:page]).per(Settings.book_per_page)
+      .search params[:search]
+    @categories = Category.select_attr
+
+    return unless logged_in?
+    @categories = @user.categories_of_feed
+    @books = @user.feed.page(params[:page]).per(Settings.book_per_page)
+      .search params[:search]
+  end
 
   def create
     @user = User.new user_params

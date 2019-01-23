@@ -1,24 +1,45 @@
 <% provide :title, @user.name %>
 <div class="main main-raised">
-  <div class="section section-basic">
+  <div class="section section-basic custom-background">
     <div class="container">
       <%= render "layouts/flash" %>
       <div class="row">
         <aside class="col-md-12">
           <section class="user_info">
             <%= image_tag @user.gravatar_url, alt: @user.name, class: "avata col-sm-4" %>
-            <h1 class="col-sm-8">
+            <h1 class="col-sm-8 user-name">
               <%= @user.name %>
             </h1>
-            <section class="stats col-sm-3">
+            <section class="stats col-sm-9">
               <%= render "shared/stats" %>
             </section>
-            <section class="col-sm-7 follow-form">
-              <%= render "follow_form", inactive_relationships: @inactive_relationships, active_relationships: @active_relationships if logged_in? %>
-            </section>
+          </section>
+          <section class="col-sm-2">
+            <%= render "follow_form", inactive_relationships: @inactive_relationships, active_relationships: @active_relationships if logged_in? %>
           </section>
         </aside>
       </div>
+      <% if @books.any? %>
+        <div class="flat-projects">
+          <ul class="projects-filter style1">
+            <%= form_tag books_path, method: :get, class: "pull-right search-form" do %>
+              <%= text_field_tag :search, params[:search], class: "field-search" %>
+              <%= submit_tag t("books.search"), name: nil, class: "style-display" %>
+            <% end %>
+            <li class="active"><a data-filter="*" href="#"><%= t "books.all" %></a></li>
+            <% @categories.each do |category| %>
+              <li><%= link_to category.name, "#",
+                data: {filter: ".#{category.id}"} %></li>
+            <% end %>
+          </ul>
+          <div class="projects-items book_items">
+            <%= render @books %>
+          </div>
+          <div class="col-sm-6 offset-sm-4">
+            <%= paginate @books, theme: "twitter-bootstrap-3" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

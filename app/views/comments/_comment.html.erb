@@ -1,8 +1,23 @@
-<%= image_tag comment.gravatar_url, class: "img-responsive img-circle"%>
-<%= comment.name %>: <%= comment.content %>
-<%= t "comments.comment" %> <%= time_ago_in_words comment.created_at %> ago.
-<% if current_user == comment.user %>
-  <%= link_to t("comments.delete"), book_comment_path(comment.book, comment), method: :delete,
-    data: {confirm: t("comments.you_sure")}, remote: true %>
-<% end %>
-</br>
+<div class="row">
+  <div class="comments col-sm-12">
+    <div class="col-sm-1">
+    <%= image_tag comment.gravatar_url, class: "img-responsive img-circle"%>
+    </div>
+    <div class="col-sm-2">
+      <p class="style-comment"><%= comment.name %></p>
+      <span class="time-comment">
+        <%= t "comments.comment" %> <%= time_ago_in_words comment.created_at %> ago.
+      </span>
+    </div>
+    <div class="col-sm-8 padding10">
+      <%= comment.content %>
+    </div>
+    <div class="col-sm-1 padding15">
+      <% if current_user == comment.user %>
+        <%= link_to t("comments.delete"), book_comment_path(comment.book, comment), method: :delete,
+          data: {confirm: t("comments.you_sure")}, remote: true %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-10 offset-sm-1 solid"></div>
+</div>
