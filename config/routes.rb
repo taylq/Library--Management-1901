@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
     resources :like_books, only: [:create, :destroy]
 
-    resources :books, only: %i(index show)
+    resources :books, only: %i(index show) do
+      resources :comments, only: [:create, :destroy]
+    end
     namespace :admin do
       resources :users
       resources :borrows

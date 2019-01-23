@@ -1,8 +1,8 @@
 <tr>
   <td><%= borrow.user_name %></td>
   <td><%= borrow.book_name %></td>
-  <td><%= borrow.started_at %></td>
-  <td><%= borrow.finished_at %></td>
+  <td><%= l borrow.started_at %></td>
+  <td><%= l borrow.finished_at %></td>
   <%= form_for [:admin, borrow] do |f| %>
     <td class="field" style="width: 80px;">
       <%= f.select :status, status_choice, selected: borrow.status %>

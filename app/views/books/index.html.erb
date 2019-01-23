@@ -1,6 +1,7 @@
 <div class="main main-raised">
   <div class="section section-basic">
     <div class="container">
+      <%= render "layouts/flash" %>
       <div>
         <%= form_tag books_path, method: :get, class: "col-sm-4 offset-sm-8" do %>
           <%= text_field_tag :search, params[:search] %>

@@ -13,7 +13,7 @@
           <li><%= book.status %></li>
         </ul>
         <h6 class="project-buttons">
-          <a href="portfolio-single-list.html" class="flat-button"><%= t "books.quick_view" %></a>
+          <%= link_to t("books.quick_view"), book, class: "flat-button" %>
         </h6>
       </div>
     </div>

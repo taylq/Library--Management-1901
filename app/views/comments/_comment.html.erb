@@ -1,0 +1,8 @@
+<%= image_tag comment.gravatar_url, class: "img-responsive img-circle"%>
+<%= comment.name %>: <%= comment.content %>
+<%= t "comments.comment" %> <%= time_ago_in_words comment.created_at %> ago.
+<% if current_user == comment.user %>
+  <%= link_to t("comments.delete"), book_comment_path(comment.book, comment), method: :delete,
+    data: {confirm: t("comments.you_sure")}, remote: true %>
+<% end %>
+</br>

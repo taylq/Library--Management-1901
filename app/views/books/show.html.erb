@@ -1,6 +1,7 @@
 <div class="main main-raised">
   <div class="section section-basic">
     <div class="container">
+      <%= render "layouts/flash" %>
       <div class="row">
         <div class="col-sm-2">
           <%= image_tag @book.image if @book.image? %>
@@ -19,7 +20,7 @@
               <%= render "like_form", like_book: @like_book %>
             </section>
             <% if @book.ready? %>
-              <p class="status col-sm-5"><%= @book.status %></p>
+              <p class="status col-sm-5"><%= t "books.#{@book.status}" %></p>
               <div class="col-sm-12" id="modals">
                 <div class="">
                   <div class="row">
@@ -33,7 +34,7 @@
                 </div>
               </div>
             <% else %>
-              <p class="status1 col-sm-6"><%= @book.status %></p></br>
+              <p class="status1 col-sm-6"><%= t "books.#{@book.status}" %></p></br>
             <% end %>
           <% end %>
           <h3><%= t "books.publisher" %></h3>
@@ -44,6 +45,14 @@
         <div class="col-sm-8" style="text-align: center">
           <h2><%= @book.name %></h2>
           <h6><%= @book.content %></h6>
+          <div id="load_comment-<%= @book.id %>">
+            <%= render @comments %>
+          </div>
+          <% if logged_in? %>
+            <div id="comment_form">
+              <%= render "comments/form", book: @book %>
+            </div>
+          <% end %>
         </div>
         <div class="col-sm-2">
           <h3><%= t "books.author" %></h3>

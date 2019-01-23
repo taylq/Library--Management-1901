@@ -48,6 +48,9 @@ en:
     role: "Role"
     like: "Like"
     dislike: "Dislike"
+    find_fail: "User not found."
+    likers: "Like"
+    edit: "Edit"
     new:
       title: "Sign Up"
       content: "This is sign up page"
@@ -71,6 +74,7 @@ en:
     welcome: "Welcome,"
     menu: "Menu"
     users: "Users"
+    borows: "Borrows"
   views:
     pagination:
       first: "First"
@@ -80,6 +84,8 @@ en:
   footer:
     footer: "2019, made with favorite by TayLQ"
   books:
+    ready: "Ready"
+    borrowed: "Borrowed"
     all: "All"
     search: "Search"
     find:
@@ -97,6 +103,10 @@ en:
     request: "%{user_name} send request to borrow book"
     status: "Status"
     change: "Change"
+    already_exist: "Your request already exist!"
+    created: "Borrow book successfully!"
+    created_fail: "Borrow book fail!"
+    index: "Manage borrows request "
   waiting: "Waiting"
   approved: "Approved"
   disapproved: "Disapproved"
@@ -109,3 +119,13 @@ en:
     download: "Download:"
     csv: "CSV"
     excel: "Excel"
+  comments:
+    delete: "Delete"
+    you_sure: "You sure?"
+    comment: "Comment"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  time:
+    formats:
+      default: "%H:%M - %d/%m/%y"
