@@ -7,6 +7,10 @@ class Borrow < ApplicationRecord
 
   validates :started_at, presence: true
   validates :finished_at, presence: true
+  validates :book_id, presence: true
+  validates :user_id, presence: true
+  validates :status, presence: true
+  validate :validate_time, on: :create
   delegate :name, to: :user, prefix: true
   delegate :name, to: :book, prefix: true
 
@@ -36,5 +40,10 @@ class Borrow < ApplicationRecord
 
   def notify
     Notification.create event: I18n.t("borrows.request", user_name: user.name), user_id: user.id
+  end
+
+  def validate_time
+    errors.add(:started_at, "can't be in the past") unless started_at > DateTime.now
+    errors.add(:started_at, "can't be > finished_at") unless started_at < finished_at
   end
 end
