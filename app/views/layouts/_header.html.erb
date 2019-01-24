@@ -17,7 +17,11 @@
               </div>
             </li>
             <li class="nav-item">
-              <%= link_to t(".users"), current_user.admin? ? admin_users_path : users_path, class: "nav-link" %>
+              <% if current_user.admin? %>
+                <%= link_to t(".users"), admin_users_path, class: "nav-link", data: { turbolinks: false } %>
+              <% else %>
+                <%= link_to t(".users"), users_path, class: "nav-link" %>
+              <% end %>
             </li>
           <% else %>
             <li class="nav-item"><%= link_to t(".login"), login_path, class: "nav-link" %></li>

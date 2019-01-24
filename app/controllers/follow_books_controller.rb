@@ -3,19 +3,18 @@ class FollowBooksController < ApplicationController
 
   def create
     @book = Book.find_by id: params[:book_id]
-    @follow_book = current_user.follow_books.new book_id: params[:book_id]
-    if @follow_book.save
-      respond_to do |format|
-        format.html {redirect_to @book}
-        format.js
-      end
+    current_user.follow_book @book
+    @follow_book = current_user.follow_books.find_by book_id: @book.id
+    respond_to do |format|
+      format.html {redirect_to @book}
+      format.js
     end
   end
 
   def destroy
-    @follow_book = FollowBook.find_by id: params[:id]
-    @book = Book.find_by id: @follow_book.book_id
-    @follow_book.destroy
+    @book = FollowBook.find_by(id: params[:id]).book
+    current_user.unfollow_book @book
+    @follow_book = current_user.follow_books.build
     respond_to do |format|
       format.html {redirect_to @book}
       format.js
