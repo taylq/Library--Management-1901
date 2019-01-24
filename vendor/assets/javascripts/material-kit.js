@@ -16,7 +16,7 @@
  */
 var big_image;
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   BrowserDetect.init();
 
   // Init Material scripts for buttons ripples, inputs animations etc, more info on the next link https://github.com/FezVrasta/bootstrap-material-design#materialjs

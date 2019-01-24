@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   $('.datetimepicker').datetimepicker({
     format: I18n.t("datetime.format")
   });
@@ -10,8 +10,6 @@ $(function () {
   $("#new_message").bind("ajax:complete", function (event, xhr, status) {
     $('.message_content').val('');
   });
-});
-$(document).ready(function () {
   materialKit.initFormExtendedDatetimepickers();
   materialKit.initSliders();
 });

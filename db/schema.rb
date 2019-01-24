@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_005945) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "book_authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "authors_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "book_id"
     t.integer "author_id"
     t.datetime "created_at", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_005945) do
     t.string "name"
     t.text "content"
     t.integer "number_of_page"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

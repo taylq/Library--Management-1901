@@ -3,19 +3,18 @@ class LikeBooksController < ApplicationController
 
   def create
     @book = Book.find_by id: params[:book_id]
-    @like_book = current_user.like_books.new book_id: params[:book_id]
-    if @like_book.save
-      respond_to do |format|
-        format.html {redirect_to @book}
-        format.js
-      end
+    current_user.like_book @book
+    @like_book = current_user.like_books.find_by book_id: @book.id
+    respond_to do |format|
+      format.html {redirect_to @book}
+      format.js
     end
   end
 
   def destroy
-    @like_book = LikeBook.find_by id: params[:id]
-    @book = Book.find_by id: @like_book.book_id
-    @like_book.destroy
+    @book = LikeBook.find_by(id: params[:id]).book
+    current_user.dislike_book @book
+    @like_book = current_user.like_books.build
     respond_to do |format|
       format.html {redirect_to @book}
       format.js

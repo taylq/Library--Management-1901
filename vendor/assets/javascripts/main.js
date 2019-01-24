@@ -49,7 +49,7 @@
     };
 
    	// Dom Ready
-	$(function() {
+	$(document).on('turbolinks:load', function() {
         if ( matchMedia( 'only screen and (min-width: 991px)' ).matches ) {
             headerFixed();
         }

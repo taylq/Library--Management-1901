@@ -1,35 +1,52 @@
 <% provide :title, t("users.index") %>
 <div class="right_col" role="main">
-<h1><%= t "users.index" %></h1>
   <div class="">
-    <div class="row top_tiles" style="margin: 10px 0;">
-      <div class="col-md-12 col-sm-12 col-xs-12 tile">
-        <div>
-          <p><%= t "users.search" %></p>
+    <div class="page-title">
+      <div class="title_left">
+        <h3><%= t "users.index" %></h3>
+      </div>
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <%= form_tag admin_users_path, method: :get do %>
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag t("books.search") %>
+            <div class="input-group">
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("search.users") %>
+              <span class="input-group-btn">
+                <%= submit_tag t("books.search"), class: "btn btn-default" %>
+              </span>
+            </div>
           <% end %>
         </div>
-        <ul class="users">
-          <table class="table">
-            <tr>
-              <th><%= t "users.new.name" %></th>
-              <th><%= t "sessions.new.email" %></th>
-              <th><%= t "users.role" %></th>
-              <th></th>
-            </tr>
-              <%= render @users %>
-          </table>
-        </ul>
-        <div class="col-sm-8 col-sm-offset-3">
-          <%= paginate @users, theme: "twitter-bootstrap-3" %>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th><%= t "users.new.name" %></th>
+                  <th><%= t "sessions.new.email" %></th>
+                  <th><%= t "users.role" %></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @users %>
+              </tbody>
+            </table>
+            <div class="col-sm-8 col-sm-offset-3">
+              <%= paginate @users, theme: "twitter-bootstrap-3" %>
+            </div>
+          </div>
+          <div>
+            <%= t "export.download" %>
+            <%= link_to t("export.csv"), admin_users_path(format: "csv", search: params[:search]) %> |
+            <%= link_to t("export.excel"), admin_users_path(format: "xls", search: params[:search]) %>
+          </div>
         </div>
-        <p>
-          <%= t "export.download" %>
-          <%= link_to t("export.csv"), admin_users_path(format: "csv", search: params[:search]) %> |
-          <%= link_to t("export.excel"), admin_users_path(format: "xls", search: params[:search]) %>
-        </p>
       </div>
     </div>
   </div>
