@@ -4,3 +4,4 @@ approved: "approved"
 disapproved: "disapproved"
 done: "done"
 waiting: "waiting"
+counter: 1

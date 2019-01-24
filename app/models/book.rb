@@ -17,6 +17,7 @@ class Book < ApplicationRecord
   end
 
   delegate :name, :phone, :address, to: :publisher, prefix: true
+  delegate :name, to: :category, prefix: true
 
   class << self
     def search search

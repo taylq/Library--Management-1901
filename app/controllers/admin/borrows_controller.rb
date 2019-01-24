@@ -3,7 +3,8 @@ module Admin
     before_action :find_borrow, :find_book, only: :update
 
     def index
-      @borrows = Borrow.select_attr.search params[:status], params[:search]
+      @borrows = Borrow.select_attr.page(params[:page]).per(Settings.per_page)
+        .search params[:status], params[:search]
     end
 
     def update
@@ -31,7 +32,10 @@ module Admin
         @borrows.each do |borrow|
           DisapprovedRequestMailer.delay.disapproved_request_email borrow.user
         end
-      elsif params[:borrow][:status] == Settings.done
+      elsif params[:borrow][:status] == Settings.disapproved
+        DisapprovedRequestMailer.delay.disapproved_request_email @borrow.user
+        @book.update_attributes status: Book.statuses[:ready]
+      else
         @book.update_attributes status: Book.statuses[:ready]
       end
     end

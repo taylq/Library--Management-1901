@@ -30,11 +30,11 @@ class BooksController < ApplicationController
 
   def status_follow_book
     return unless logged_in?
-    @follow_book = @book.follow_books.build || @book.follow_books.find_by(book_id: @book.id)
+    @follow_book = @book.follow_books.find_by(book_id: @book.id) || @book.follow_books.build
   end
 
   def status_like_book
     return unless logged_in?
-    @like_book = @book.like_books.build || @book.like_books.find_by(book_id: @book.id)
+    @like_book = @book.like_books.find_by(book_id: @book.id) || @book.like_books.build
   end
 end

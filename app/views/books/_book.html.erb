@@ -1,17 +1,13 @@
 <div class="projects flat-column-4 hentry <%= book.category.id %>">
-  <div class="project-wrap">
+  <div class="project-wrap1">
     <div class="project-thumbnail">
-      <%= image_tag book.image if book.image? %>
+      <%= image_tag book.image.url ||= book.image.default_url %>
     </div>
-    <div class="project-info">
-      <div class="project-info-wrap">
+    <div>
+      <div>
         <h3 class="project-title">
           <%= link_to book.name, book %>
         </h3>
-        <ul class="project-categories">
-          <li><%= book.publisher_name %></li>
-          <li><%= book.status %></li>
-        </ul>
         <h6 class="project-buttons">
           <%= link_to t("books.quick_view"), book, class: "flat-button" %>
         </h6>

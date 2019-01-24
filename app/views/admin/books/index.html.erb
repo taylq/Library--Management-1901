@@ -1,0 +1,61 @@
+<div class="right_col" role="main">
+  <div>
+    <div class="page-title">
+      <%= render 'layouts/admin/flash' %>
+      <div class="title_left">
+        <h3><%= t "books.index" %></h3>
+      </div>
+      <div>
+        <div class="col-md-4 col-sm-4 col-xs-12 form-group pull-right top_search">
+          <%= form_tag admin_books_path, method: :get do |f| %>
+            <div class="input-group">
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("search.users") %>
+              <span class="input-group-btn">
+                <%= submit_tag t("books.search"), class: "btn btn-default" %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-sm-2 pull-right">
+          <%= link_to t("books.create"), new_admin_book_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+          <% if @books.any? %>
+            <div class="book-exort">
+              <p class="col-sm-2 pull-right export">
+              <%= t "export.download" %>
+              <%= link_to t("export.csv"), books_path(format: "csv", search: params[:search]) %> |
+              <%= link_to t("export.excel"), books_path(format: "xls", search: params[:search]) %></p>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th><%= t "books.image" %></th>
+                  <th><%= t "books.name" %></th>
+                  <th><%= t "books.category_name" %></th>
+                  <th><%= t "books.publisher_name" %></th>
+                  <th><%= t "books.number_of_page" %></th>
+                  <th><%= t "borrows.status" %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @books %>
+              </tbody>
+            </table>
+            <% end %>
+            <div class="col-sm-8 col-sm-offset-3">
+              <%= paginate @books, theme: "twitter-bootstrap-3" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
