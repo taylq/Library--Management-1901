@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
     namespace :admin do
       resources :users
+      resources :books
       resources :borrows
     end
   end

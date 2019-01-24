@@ -73,8 +73,9 @@ vi:
   admin:
     welcome: "Chào,"
     menu: "Menu"
-    users: "Người dùng"
-    borows: "Mượn sách"
+    users: "Quản lý người dùng"
+    borows: "Quản lý mượn sách"
+    books: "Quản lý sách"
   views:
     pagination:
       first: "Trang đầu"
@@ -84,6 +85,8 @@ vi:
   footer:
     footer: "2019, Phát triển bởi Lê Quang Tây"
   books:
+    create_fail: "Thêm mới sách thất bại!"
+    created: "Thêm mới sách thành công!"
     ready: "Có thể mượn"
     borrowed: "Không thể mượn"
     all: "Tất cả"
@@ -97,6 +100,13 @@ vi:
     finished_at: "Ngày trả"
     close: "Đóng"
     quick_view: "Xem nhanh"
+    name: "Tên sách"
+    image: "Ảnh bìa"
+    category_name: "Danh mục"
+    publisher_name: "Nhà xuất bản"
+    number_of_page: "Số trang"
+    create: "Thêm mới sách"
+    content: "Nội dung"
   datetime:
     format: "DD/MM/YYYY HH:mm"
   borrows:
@@ -123,6 +133,7 @@ vi:
     delete: "Xóa"
     you_sure: "Bạn chắc chắn muốn xóa?"
     comment: "Bình luận"
+    ago: "trước."
   date:
     formats:
       default: "%d/%m/%Y"
@@ -132,3 +143,6 @@ vi:
   publishers:
     phone: "SĐT: "
     address: "Địa chỉ: "
+  search:
+    users: "Tìm kiếm ..."
+  submit: "Lưu"

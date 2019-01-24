@@ -13,7 +13,7 @@
             </div>
             <div class="row">
               <p class="publisher"><%= t "books.author" %></p>
-              <% @book.book_authors.each do |ba| %>
+              <% @book.authors_books.each do |ba| %>
                 <p class="publisher-info"><%= ba.name %></p>
               <% end %>
             </div>

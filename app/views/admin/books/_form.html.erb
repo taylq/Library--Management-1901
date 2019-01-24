@@ -1,0 +1,84 @@
+<div class="right_col" role="main">
+  <div>
+    <div class="page-title">
+      <div class="title_left">
+        <h3><%= t "books.create" %></h3>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <%= form_for [:admin, @book], id: "demo-form2", class: "form-horizontal form-label-left" do |f| %>
+              <div class="avatar-upload col-sm-3">
+                <div class="avatar-edit">
+                  <%= f.file_field :image, id: "imageUpload" %>
+                  <label for="imageUpload"></label>
+                </div>
+                <div class="avatar-preview">
+                  <div id="imagePreview"></div>
+                </div>
+              </div>
+              <div class="col-sm-7 margin-left-55">
+                <div class="form-group">
+                  <%= f.label :category, t("books.category_name"), class: "control-label col-sm-3" %>
+                  <div class=" col-sm-9">
+                    <%= f.select :category_id, category_choices, class: "form-control " %>
+                  </div>
+                </div></br>
+                <div class="form-group">
+                  <%= f.label :publisher, t("books.publisher_name"), class: "control-label col-sm-3" %>
+                  <div class=" col-sm-9">
+                    <%= f.select :publisher_id, publisher_choices, class: "form-control " %>
+                  </div>
+                </div></br>
+                <div class="form-group">
+                  <%= f.label :book_name, t("books.name"), class: "control-label col-sm-3" %>
+                  <div class=" col-sm-9">
+                    <%= f.text_field :name, class: "form-control" %>
+                  </div>
+                </div></br>
+                <div class="form-group">
+                  <%= f.label :content, t("books.content"), class: "control-label col-sm-3" %>
+                  <div class=" col-sm-9">
+                    <%= f.text_area :content, class: "form-control" %>
+                  </div>
+                </div></br></br>
+                <div class="form-group">
+                  <%= f.label :number_of_page, t("books.number_of_page"), class: "control-label col-sm-3" %>
+                  <div class=" col-sm-9">
+                    <%= f.number_field :number_of_page, class: "form-control" %>
+                  </div>
+                </div></br>
+                <div class="form-group" data-length="<%= authors.length %>" id="length">
+                  <%= f.label :author, t("books.author"), class: "control-label col-sm-3" %>
+                  <div class="col-sm-9">
+                    <% authors.each do |author| %>
+                      <%= f.fields_for :authors_books,
+                        author.author_ids_of_book(@book) ||
+                        @book.authors_books.build do |ap| %>
+                        <div class="col-sm-6 ">
+                          <%= f.label author.name %>
+                          <%= ap.check_box :author_id, {id: "checkbox_check#{author.id}",
+                            class: "flat"}, author.id, 0 %>
+                          <%= ap.hidden_field :_destroy, id: "data-form-prepend#{author.id}" %>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+                </br>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <%= f.submit t("submit"), class: "btn btn-success" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

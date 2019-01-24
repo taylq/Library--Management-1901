@@ -8,4 +8,12 @@ module ApplicationHelper
   def notifications
     Notification.select_attr
   end
+
+  def category_choices
+    Category.pluck :name, :id
+  end
+
+  def publisher_choices
+    Publisher.pluck :name, :id
+  end
 end

@@ -73,8 +73,9 @@ en:
   admin:
     welcome: "Welcome,"
     menu: "Menu"
-    users: "Users"
-    borows: "Borrows"
+    users: "Manage users"
+    borows: "Manage borrows"
+    books: "Manage books"
   views:
     pagination:
       first: "First"
@@ -84,6 +85,8 @@ en:
   footer:
     footer: "2019, made with favorite by TayLQ"
   books:
+    create_fail: "Book create fail!"
+    created: "Book create successfully!"
     ready: "Ready"
     borrowed: "Borrowed"
     all: "All"
@@ -97,6 +100,13 @@ en:
     finished_at: "Finished at"
     close: "Close"
     quick_view: "Quick View"
+    name: "Name"
+    image: "Image"
+    category_name: "Category"
+    publisher_name: "Publisher"
+    number_of_page: "Pages"
+    create: "Add a book"
+    content: "Content"
   datetime:
     format: "DD/MM/YYYY HH:mm"
   borrows:
@@ -123,6 +133,7 @@ en:
     delete: "Delete"
     you_sure: "You sure?"
     comment: "Comment"
+    ago: "ago."
   date:
     formats:
       default: "%d/%m/%Y"
@@ -132,3 +143,6 @@ en:
   publishers:
     phone: "Phone: "
     address: "Address: "
+  search:
+    users: "Search ..."
+  submit: "Submit"
