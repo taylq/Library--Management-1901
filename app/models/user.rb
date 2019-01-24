@@ -11,7 +11,9 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :follow_books, dependent: :destroy
+  has_many :following_books, through: :follow_books, source: :book
   has_many :like_books, dependent: :destroy
+  has_many :liking_books, through: :like_books, source: :book
   has_many :notifications, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 50}
@@ -84,8 +86,28 @@ class User < ApplicationRecord
     following.include? other_user
   end
 
+  def follow_book book
+    following_books << book
+  end
+
+  def unfollow_book book
+    following_books.delete book
+  end
+
+  def following_book? book
+    following_books.include? book
+  end
+
+  def like_book book
+    liking_books << book
+  end
+
+  def dislike_book book
+    liking_books.delete book
+  end
+
   def liking? book
-    like_books.include? book
+    liking_books.include? book
   end
 
   private
