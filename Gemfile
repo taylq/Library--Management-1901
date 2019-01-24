@@ -25,9 +25,12 @@ gem "i18n-js"
 gem "delayed_job"
 gem "delayed_job_active_record"
 gem "whenever", require: false
+gem "carrierwave", "~> 1.0"
 
 group :development, :test do
   gem "pry", platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails", "~> 3.7"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -41,6 +44,13 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
   gem "chromedriver-helper"
+  gem "ffaker"
+  gem "guard-rspec"
+  gem "launchy"
+  gem "shoulda-matchers", github: "thoughtbot/shoulda-matchers"
+  gem "rails-controller-testing"
+  gem "database_cleaner"
+  gem "simplecov", require: false
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
