@@ -1,6 +1,6 @@
 <tr>
   <td class="row"><%= book_counter + Settings.counter %></td>
-  <td><%= image_tag book.image.url ||= book.image.default_url %></td>
+  <td><%= image_tag book.image %></td>
   <td><%= link_to book.name, admin_book_path(book) %></td>
   <td><%= book.category_name %></td>
   <td><%= book.publisher_name %></td>

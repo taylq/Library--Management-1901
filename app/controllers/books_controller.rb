@@ -3,8 +3,8 @@ class BooksController < ApplicationController
   before_action :status_follow_book, :status_like_book, only: %i(show)
 
   def index
-    @books = Book.select_attr.page(params[:page]).per(Settings.book_per_page)
-      .search params[:search]
+    @books = Book.select_attr.search(params[:search]).uniq
+    @panigatable = Kaminari.paginate_array(@books).page(params[:page]).per Settings.book_per_page
     @categories = Category.select_attr
     respond_to do |format|
       format.html {}
@@ -24,7 +24,7 @@ class BooksController < ApplicationController
 
   def find_book
     return if @book = Book.find_by(id: params[:id])
-    flash[:danger] = t "books.find.fail"
+    flash[:danger] = t "books.find_fail"
     redirect_to books_path
   end
 
