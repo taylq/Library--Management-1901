@@ -38,6 +38,11 @@ en:
       title: "HelpPage"
       content: "This is help page"
   users:
+    please_login: "Please login first!"
+    update_success: "Update successfully!"
+    update_fail: "Update fail!"
+    delete_success: "Delete successfully!"
+    delete_fail: "Delete fail!"
     following: "Following"
     followers: "Followers"
     view_profile: "View my profile"
@@ -91,8 +96,7 @@ en:
     borrowed: "Borrowed"
     all: "All"
     search: "Search"
-    find:
-      fail: "Book not found!"
+    find_fail: "Book not found!"
     publisher: "Publisher: "
     author: "Author: "
     borrow: "Borrow"
@@ -146,3 +150,5 @@ en:
   search:
     users: "Search ..."
   submit: "Submit"
+  user: "User"
+  admin: "Admin"

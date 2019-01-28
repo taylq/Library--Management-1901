@@ -206,3 +206,15 @@ label{
 .margin10{
   margin: 10px 0;
 }
+
+.project-thumbnail {
+  img{
+    width: 235px;
+    height: 345px;
+  }
+}
+
+.project-wrap1{
+  border: 10px solid $eae;
+  border-radius: 7px;
+}

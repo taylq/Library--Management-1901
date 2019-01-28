@@ -2,6 +2,16 @@
   <td class="row"><%= user_counter + Settings.counter %></td>
   <td><%= link_to user.name, admin_user_path(user) %></td>
   <td><%= user.email %></td>
-  <td><%= user.role %></td>
-  <td><%= link_to t("users.edit"), edit_admin_user_path(user) %></td>
+  <%= form_for [:admin, user], class: "form-horizontal form-label-left" do |f| %>
+    <div class="form-group">
+      <td><%= f.select :role, role_choice, selected: user.role, class: "form-control" %></td>
+    </div>
+    <td><%= f.submit t("users.edit"), class: "btn btn-primary" %></td>
+  <% end %>
+  <td>
+    <% if user.user? %>
+      <%= link_to t("comments.delete"), admin_user_path(user),method: :delete,
+        data: {confirm: t("comments.you_sure")}, class: "btn btn-danger" %>
+    <% end %>
+  </td>
 </tr>
