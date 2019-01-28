@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
-
   before_action :set_locale
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -11,10 +10,11 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = t "users.please_login"
-      redirect_to login_url
-    end
+  private
+
+  def configure_permitted_parameters
+    attributes = [:name, :email, :password, :password_confirmation]
+    devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
+    devise_parameter_sanitizer.permit(:account_update, keys: attributes)
   end
 end

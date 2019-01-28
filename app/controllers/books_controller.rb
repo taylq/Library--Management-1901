@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 
   def show
     @comments = @book.comments.order_comment
-    return unless logged_in?
+    return unless user_signed_in?
     @borrow = current_user.borrows.new
     @comment = current_user.comments.build
   end
@@ -29,12 +29,12 @@ class BooksController < ApplicationController
   end
 
   def status_follow_book
-    return unless logged_in?
+    return unless user_signed_in?
     @follow_book = @book.follow_books.find_by(book_id: @book.id) || @book.follow_books.build
   end
 
   def status_like_book
-    return unless logged_in?
+    return unless user_signed_in?
     @like_book = @book.like_books.find_by(book_id: @book.id) || @book.like_books.build
   end
 end

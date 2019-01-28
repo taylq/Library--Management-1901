@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_user, except: %i(index new create)
-  before_action :logged_in_user, only: %i(index following followers)
   before_action :status_relationship, only: %i(show following followers)
 
   def index
@@ -15,22 +15,10 @@ class UsersController < ApplicationController
     @books = Book.select_attr.page(params[:page]).per(Settings.book_per_page)
       .search params[:search]
     @categories = Category.select_attr
-
-    return unless logged_in?
+    return unless user_signed_in?
     @categories = @user.categories_of_feed
     @books = @user.feed.page(params[:page]).per(Settings.book_per_page)
       .search params[:search]
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      log_in @user
-      flash[:success] = t "users.welcome"
-      redirect_to @user
-    else
-      render :new
-    end
   end
 
   def following
@@ -58,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def status_relationship
-    return unless logged_in?
+    return unless user_signed_in?
     @active_relationships = current_user.active_relationships.build
     @inactive_relationships = current_user.active_relationships.find_by(followed_id: @user.id)
   end

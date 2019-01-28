@@ -129,9 +129,11 @@ ActiveRecord::Schema.define(version: 2019_01_28_091317) do
     t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
