@@ -7,6 +7,7 @@
       <div>
         <h3 class="project-title">
           <%= link_to book.name, book %>
+          <%= rating_for book, "like", star: Settings.stat, disable_after_rate: false %>
         </h3>
         <h6 class="project-buttons">
           <%= link_to t("books.quick_view"), book, class: "flat-button" %>

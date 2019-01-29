@@ -10,6 +10,8 @@
 //= require i18n
 //= require i18n.js
 //= require i18n/translations
+//= require jquery.raty
+//= require ratyrate
 //= require activestorage
 //= require turbolinks
 //= require main
