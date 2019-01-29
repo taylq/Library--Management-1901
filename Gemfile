@@ -32,6 +32,7 @@ gem "cancancan"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-oauth2", "~> 1.3.1"
+gem "ratyrate"
 
 group :development, :test do
   gem "pry", platforms: [:mri, :mingw, :x64_mingw]

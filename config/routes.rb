@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "/rate", to: "rater#create", as: "rate"
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   scope "(:locale)", locale: /en|vi/ do
     root to: "static_pages#home"

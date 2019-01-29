@@ -1,7 +1,9 @@
 class Book < ApplicationRecord
+  ratyrate_rateable "like", "good"
   enum status: %i(ready borrowed)
 
-  has_many :book_authors, dependent: :destroy
+  has_many :authors_books, dependent: :destroy
+  has_many :authors, through: :authors_books, dependent: :destroy
   has_many :borrows, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :follow_books, dependent: :destroy
