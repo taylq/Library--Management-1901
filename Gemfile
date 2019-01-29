@@ -33,6 +33,8 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-oauth2", "~> 1.3.1"
 gem "ratyrate"
+gem "social-share-button", github: "huacnlee/social-share-button"
+gem "chartkick"
 
 group :development, :test do
   gem "pry", platforms: [:mri, :mingw, :x64_mingw]
