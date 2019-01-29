@@ -29,6 +29,9 @@ gem "carrierwave", "~> 1.0"
 gem "paranoia", "~> 2.2"
 gem "devise"
 gem "cancancan"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-oauth2", "~> 1.3.1"
 
 group :development, :test do
   gem "pry", platforms: [:mri, :mingw, :x64_mingw]

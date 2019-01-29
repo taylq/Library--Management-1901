@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   acts_as_paranoid
-  devise :database_authenticatable, :registerable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :rememberable, :validatable,
+    :omniauthable, omniauth_providers: [:google_oauth2]
   before_save :email_downcase
   enum role: %i(user admin)
 
@@ -60,6 +61,19 @@ class User < ApplicationRecord
         all.each do |user|
           csv << user.attributes.values_at(*attributes)
         end
+      end
+    end
+
+    def from_omniauth auth
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.name = auth.info.name
+        user.email = auth.info.email
+        charset = Array('A'..'Z') + Array('a'..'z')
+        user.password = Array.new(6){charset.sample}.join
+        user.oauth_token = auth.credentials.token
+        user.expires = auth.credentials.expires
+        user.oauth_expires_at = auth.credentials.expires_at
+        user.refresh_token = auth.credentials.refresh_token
       end
     end
   end

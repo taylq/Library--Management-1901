@@ -133,6 +133,12 @@ ActiveRecord::Schema.define(version: 2019_01_28_091317) do
     t.datetime "remember_created_at"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
+    t.string "provider"
+    t.string "uid"
+    t.string "oauth_token"
+    t.integer "oauth_expires_at"
+    t.boolean "expires"
+    t.string "refresh_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
