@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_paranoid
+  devise :database_authenticatable, :registerable, :rememberable, :validatable
   before_save :email_downcase
   enum role: %i(user admin)
 
@@ -27,9 +28,7 @@ class User < ApplicationRecord
   scope :select_attr, ->{select(:id, :name, :email, :role)}
   scope :search_scope, ->(search){where "name like '%#{search}%' or email like '%#{search}%'"}
 
-  has_secure_password
-
-  def gravatar_url options = {size: 50}
+  def gravatar_url options = {size: Settings.gravatar}
     gravatar_id = Digest::MD5.hexdigest email.downcase
     size = options[:size]
     "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"

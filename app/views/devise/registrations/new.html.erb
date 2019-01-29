@@ -3,15 +3,16 @@
     <div class="row">
       <div class="col-lg-4 col-md-6 ml-auto mr-auto">
         <div class="card card-login">
-          <%= form_for @user, class: "form" do |f| %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <div class="card-header card-header-primary text-center">
-              <h4 class="card-title"><%= t ".sign_up" %></h4>
+              <h4 class="card-title"><%= t "users.new.sign_up" %></h4>
             </div>
+            <%= devise_error_messages! %>
             <div class="card-body">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons"><%= t ".name" %></i>
+                    <i class="material-icons"><%= t "users.new.name" %></i>
                   </span>
                 </div>
                 <%= f.text_field :name, class: "form-control" %>
@@ -19,7 +20,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons"><%= t ".email" %></i>
+                    <i class="material-icons"><%= t "sessions.new.email" %></i>
                   </span>
                 </div>
                 <%= f.email_field :email, class: "form-control" %>
@@ -27,7 +28,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons"><%= t ".password" %></i>
+                    <i class="material-icons"><%= t "users.new.password" %></i>
                   </span>
                 </div>
                 <%= f.password_field :password, class: "form-control" %>
@@ -35,18 +36,18 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons"><%= t ".password_confirmation" %></i>
+                    <i class="material-icons"><%= t "users.new.password_confirmation" %></i>
                   </span>
                 </div>
                 <%= f.password_field :password_confirmation, class: "form-control" %>
               </div>
             </div>
             <div class="footer text-center">
-              <%= f.submit t(".sign_up"), class: "btn btn-primary btn-wd btn-lg" %>
+              <%= f.submit t("users.new.sign_up"), class: "btn btn-primary btn-wd btn-lg" %>
             </div>
           <% end %>
         </div>
-        <%= link_to t(".sign_in_now"), login_path %>
+        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@
               <span><%= link_to t("users.view_profile"), @user %></span>
             </section>
             <section class="col-sm-7 follow-form">
-              <%= render "follow_form", inactive_relationships: @inactive_relationships, active_relationships: @active_relationships if logged_in? %>
+              <%= render "follow_form", inactive_relationships: @inactive_relationships, active_relationships: @active_relationships if user_signed_in? %>
             </section>
           </section>
         </aside>

@@ -27,6 +27,8 @@ gem "delayed_job_active_record"
 gem "whenever", require: false
 gem "carrierwave", "~> 1.0"
 gem "paranoia", "~> 2.2"
+gem "devise"
+gem "cancancan"
 
 group :development, :test do
   gem "pry", platforms: [:mri, :mingw, :x64_mingw]

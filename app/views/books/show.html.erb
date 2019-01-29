@@ -31,7 +31,7 @@
                 <%= render "like_books/stats" %>
               </section>
             </div>
-            <% if logged_in? %>
+            <% if user_signed_in? %>
               <div class="row">
                 <section class="col-sm-3">
                   <%= render "follow_form", follow_book: @follow_book %>
@@ -65,7 +65,7 @@
             <div id="load_comment-<%= @book.id %>" class="container">
               <%= render @comments %>
             </div>
-            <% if logged_in? %>
+            <% if user_signed_in? %>
               <div id="comment_form" class="offset-sm-1">
                 <%= render "comments/form", book: @book, user: current_user %>
               </div>
@@ -76,7 +76,7 @@
     </div>
   </div>
 </div>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

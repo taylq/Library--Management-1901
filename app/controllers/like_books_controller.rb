@@ -1,5 +1,5 @@
 class LikeBooksController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
 
   def create
     @book = Book.find_by id: params[:book_id]
