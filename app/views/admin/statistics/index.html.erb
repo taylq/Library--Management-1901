@@ -1,0 +1,21 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <%= render "layouts/admin/flash" %>
+      <div class="title_left">
+        <h3><%= t "admins.statistic" %></h3>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <%= line_chart @borrows.count %>
+            <p class="statistic"><%= t "statistic.title" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -78,6 +78,7 @@ vi:
   admins:
     welcome: "Chào,"
     menu: "Menu"
+    statistic: "Thống kê"
     users: "Quản lý người dùng"
     borows: "Quản lý mượn sách"
     books: "Quản lý sách"
@@ -152,3 +153,5 @@ vi:
   submit: "Lưu"
   user: "Người dùng"
   admin: "Quản trị viên"
+  statistic:
+    title: "Thống kê mượn sách theo ngày."

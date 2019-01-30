@@ -75,9 +75,10 @@ en:
   shared:
     error_messages:
       form_err: "The form contains"
-  admin:
+  admins:
     welcome: "Welcome,"
     menu: "Menu"
+    statistic: "Statistic"
     users: "Manage users"
     borows: "Manage borrows"
     books: "Manage books"
@@ -152,3 +153,5 @@ en:
   submit: "Submit"
   user: "User"
   admin: "Admin"
+  statistic:
+    title: "Statistics of book borrowing by day"

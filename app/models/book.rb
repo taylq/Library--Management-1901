@@ -17,6 +17,9 @@ class Book < ApplicationRecord
     joins(:publisher, authors_books: :author)
     .where "books.name like '%#{search}%' or books.content like '%#{search}%' or publishers.name like '%#{search}%' or authors.name like '%#{search}%'"
   end
+  mount_uploader :image, ImageUploader
+  accepts_nested_attributes_for :authors_books, allow_destroy: true,
+    reject_if: proc{|attributes| attributes["author_id"] == "0"}
 
   delegate :name, :phone, :address, to: :publisher, prefix: true
   delegate :name, to: :category, prefix: true
