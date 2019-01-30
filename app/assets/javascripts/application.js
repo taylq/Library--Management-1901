@@ -12,6 +12,7 @@
 //= require i18n/translations
 //= require jquery.raty
 //= require ratyrate
+//= require social-share-button
 //= require activestorage
 //= require turbolinks
 //= require main

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_paranoid
+  ratyrate_rater
   devise :database_authenticatable, :registerable, :rememberable, :validatable,
     :omniauthable, omniauth_providers: [:google_oauth2]
   before_save :email_downcase
