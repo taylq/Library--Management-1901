@@ -82,6 +82,7 @@ en:
     users: "Manage users"
     borows: "Manage borrows"
     books: "Manage books"
+    categories: "Manage categories"
   views:
     pagination:
       first: "First"
@@ -155,3 +156,7 @@ en:
   admin: "Admin"
   statistic:
     title: "Statistics of book borrowing by day"
+  categories:
+    name: "Category name"
+    create_category: "Create category"
+    edit_category: "Edit"
