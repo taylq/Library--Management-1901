@@ -1,0 +1,30 @@
+<div class="main main-raised">
+  <div class="section section-basic custom-background">
+    <div class="container style-container">
+      <div class="right_col" role="main">
+        <div>
+          <div class="row top_tiles margin10">
+            <div class="col-md-12 col-sm-12 col-xs-12 tile">
+              <ul class="users">
+                <table class="table">
+                  <tr>
+                    <th><%= t "users.new.name" %></th>
+                    <th><%= t "borrows.started_at" %></th>
+                    <th><%= t "borrows.finished_at" %></th>
+                    <th><%= t "borrows.status" %></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  <%= render @borrows %>
+                </table>
+              </ul>
+              <div class="col-sm-8 col-sm-offset-3">
+                <%= paginate @borrows, theme: "twitter-bootstrap-3" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

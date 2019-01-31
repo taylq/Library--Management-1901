@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     return unless user_signed_in?
     @categories = @user.categories_of_feed
     @books = @user.feed.page(params[:page]).per(Settings.book_per_page)
-      .search params[:search]
   end
 
   def following

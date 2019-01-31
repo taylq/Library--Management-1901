@@ -1,0 +1,16 @@
+<tr>
+  <td><%= borrow.book_name %></td>
+  <td><%= borrow.started_at %></td>
+  <td><%= borrow.finished_at %></td>
+  <td><%= borrow.status %></td>
+  <td>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-<%= borrow.id %>">
+      <%= t "borrows.edit_borrow" %>
+    </button>
+  </td>
+  <td>
+    <%= link_to t("comments.delete"), user_borrow_path(current_user, borrow),method: :delete,
+      data: {confirm: t("comments.you_sure")}, class: "btn btn-danger" %>
+  </td>
+</tr>
+<%= render "modal", borrow: borrow %>

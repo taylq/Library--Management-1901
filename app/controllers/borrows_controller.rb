@@ -1,7 +1,8 @@
 class BorrowsController < ApplicationController
+  before_action :find_borrow, only: :destroy
 
   def index
-    @borrows = current_user.borrows.select_attr
+    @borrows = current_user.borrows.select_attr.page(params[:page]).per Settings.book_per_page
   end
 
   def new; end
@@ -15,11 +16,26 @@ class BorrowsController < ApplicationController
     end
   end
 
+  def destroy
+    if @borrow.destroy
+      flash[:success] = "borrows.delete_successfully"
+    else
+      flash[:danger] = "borrows.delete_fail"
+    end
+    redirect_to user_borrows_path
+  end
+
   private
 
   def borrow_params
     params.require(:borrow).permit :user_id, :book_id, :started_at,
       :finished_at, :status
+  end
+
+  def find_borrow
+    return if @borrow = Borrow.find_by(id: params[:id])
+    flash[:danger] = t "users.find_fail"
+    redirect_to user_borrows_path
   end
 
   def create_borrow

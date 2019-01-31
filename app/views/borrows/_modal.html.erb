@@ -1,0 +1,40 @@
+<div class="modal fade bs-example-modal-lg-<%= borrow.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel"><%= t "categories.edit_category" %></h4>
+      </div>
+      <%= form_for [current_user, borrow], class: "form-horizontal form-label-left" do |f| %>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :started_at, t("books.started_at"), class: "label-control" %>
+                <%= f.text_field :started_at, class: "form-control datetimepicker datetimepicker1",
+                  required: true %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :finished_at, t("books.finished_at"), class: "label-control" %>
+                <%= f.text_field :finished_at, class: "form-control datetimepicker datetimepicker2",
+                  required: true %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :book_id, value: borrow.book.id %>
+        <%= f.hidden_field :status, value: "waiting" %>
+        <div class="ln_solid col-sm-12"></div>
+        <div class="form-group">
+          <div class="col-sm-6 offset-sm-3">
+            <%= f.submit t("books.borrow"), class: "btn btn-block btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
