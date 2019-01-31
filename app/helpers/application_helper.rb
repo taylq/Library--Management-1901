@@ -16,4 +16,8 @@ module ApplicationHelper
   def publisher_choices
     Publisher.pluck :name, :id
   end
+
+  def q_params params
+    return params[:name_or_content_or_publisher_name_or_authors_name_cont] unless params.nil?
+  end
 end

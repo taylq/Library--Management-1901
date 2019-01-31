@@ -7,11 +7,11 @@
       </div>
       <div>
         <div class="col-md-4 col-sm-4 col-xs-12 form-group pull-right top_search">
-          <%= form_tag admin_books_path, method: :get do |f| %>
+          <%= search_form_for [:admin, @q], method: :get do |f| %>
             <div class="input-group">
-              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("search.users") %>
+              <%= f.search_field :name_or_content_or_publisher_name_or_authors_name_cont, class: "form-control", placeholder: t("search.users") %>
               <span class="input-group-btn">
-                <%= submit_tag t("books.search"), class: "btn btn-default" %>
+                <%= f.submit t("books.search"), class: "btn btn-default" %>
               </span>
             </div>
           <% end %>
@@ -30,8 +30,8 @@
             <div class="book-exort">
               <p class="col-sm-2 pull-right export">
               <%= t "export.download" %>
-              <%= link_to t("export.csv"), books_path(format: "csv", search: params[:search]) %> |
-              <%= link_to t("export.excel"), books_path(format: "xls", search: params[:search]) %></p>
+              <%= link_to t("export.csv"), admin_books_path(format: "csv", q: q_params(params[:q])) %> |
+              <%= link_to t("export.excel"), admin_books_path(format: "xls", q: q_params(params[:q])) %></p>
             </div>
             <table class="table">
               <thead>

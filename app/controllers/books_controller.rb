@@ -3,13 +3,16 @@ class BooksController < ApplicationController
   before_action :status_follow_book, :status_like_book, only: %i(show)
 
   def index
-    @books = Book.select_attr.search(params[:search]).uniq
+    @q = Book.ransack params[:q]
+    @books = @q.result(distinct: true)
     @panigatable = Kaminari.paginate_array(@books).page(params[:page]).per Settings.book_per_page
     @categories = Category.select_attr
     respond_to do |format|
       format.html {}
-      format.csv { send_data Book.search(params[:search]).to_csv }
-      format.xls { send_data Book.search(params[:search]).to_csv }
+      format.csv { send_data Book.ransack(name_or_content_or_publisher_name_or_authors_name_cont: params[:q])
+        .result(distinct: true).to_csv }
+      format.xls { send_data Book.ransack(name_or_content_or_publisher_name_or_authors_name_cont: params[:q])
+        .result(distinct: true).to_csv }
     end
   end
 

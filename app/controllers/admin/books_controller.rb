@@ -1,11 +1,14 @@
 module Admin
   class BooksController < BaseController
     def index
-      @books = Book.select_attr.page(params[:page]).per(Settings.per_page).search params[:search]
+      @q = Book.ransack params[:q]
+      @books = @q.result(distinct: true).page(params[:page]).per Settings.per_page
       respond_to do |format|
         format.html
-        format.csv {send_data Book.search(params[:search]).to_csv}
-        format.xls {send_data Book.search(params[:search]).to_csv}
+        format.csv {send_data Book.ransack(name_or_content_or_publisher_name_or_authors_name_cont: params[:q])
+          .result(distinct: true).to_csv}
+        format.xls {send_data Book.ransack(name_or_content_or_publisher_name_or_authors_name_cont: params[:q])
+          .result(distinct: true).to_csv}
       end
     end
 

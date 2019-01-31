@@ -4,9 +4,9 @@
       <%= render "layouts/flash" %>
       <div class="flat-projects">
         <ul class="projects-filter style1">
-          <%= form_tag books_path, method: :get, class: "pull-right search-form" do %>
-            <%= text_field_tag :search, params[:search], class: "field-search" %>
-            <%= submit_tag t("books.search"), name: nil, class: "style-display" %>
+          <%= search_form_for @q, method: :get, class: "pull-right search-form" do |f| %>
+            <%= f.search_field :name_or_content_or_publisher_name_or_authors_name_cont, class: "field-search" %>
+            <%= f.submit t("books.search"), name: nil, class: "style-display" %>
           <% end %>
           <li class="active"><a data-filter="*" href="#"><%= t "books.all" %></a></li>
           <% @categories.each do |category| %>
@@ -17,8 +17,8 @@
           <div class="book-export">
             <p class="col-sm-2 pull-right export" >
             <%= t "export.download" %>
-            <%= link_to t("export.csv"), books_path(format: "csv", search: params[:search]) %> |
-            <%= link_to t("export.excel"), books_path(format: "xls", search: params[:search]) %></p>
+            <%= link_to t("export.csv"), books_path(format: "csv", q: q_params(params[:q])) %> |
+            <%= link_to t("export.excel"), books_path(format: "xls", q: q_params(params[:q])) %></p>
           </div>
         <div class="projects-items book_items">
           <%= render @books %>
@@ -29,8 +29,8 @@
       </div>
       <p>
         <%= t "export.download" %>
-        <%= link_to t("export.csv"), books_path(format: "csv", search: params[:search]) %> |
-        <%= link_to t("export.excel"), books_path(format: "xls", search: params[:search]) %>
+        <%= link_to t("export.csv"), books_path(format: "csv", q: q_params(params[:q])) %> |
+        <%= link_to t("export.excel"), books_path(format: "xls", q: q_params(params[:q])) %>
       </p>
     </div>
   </div>
