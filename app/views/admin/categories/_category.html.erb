@@ -1,0 +1,33 @@
+<tr>
+  <td class="row"><%= category_counter + Settings.counter %></td>
+  <td><%= category.name %></td>
+  <td>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-<%= category.id %>">
+      <%= t "categories.edit_category" %></button>
+  </td>
+  <td><%= link_to t("comments.delete"), admin_category_path(category),method: :delete,
+    data: {confirm: t("comments.you_sure")}, class: "btn btn-danger" %></td>
+<tr>
+<div class="modal fade bs-example-modal-lg-<%= category.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel"><%= t "categories.edit_category" %></h4>
+      </div>
+      <%= form_for [:admin, category], class: "form-horizontal form-label-left" do |f| %>
+        <div class="modal-body">
+          <%= f.label :name, t("books.category_name"), class: "control-label col-sm-3" %>
+          <div class=" col-sm-9">
+            <%= f.text_field :name, class: "form-control " %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "books.close" %></button>
+          <%= f.submit t("categories.edit_category"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

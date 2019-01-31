@@ -82,6 +82,7 @@ vi:
     users: "Quản lý người dùng"
     borows: "Quản lý mượn sách"
     books: "Quản lý sách"
+    categories: "Quản lý danh mục"
   views:
     pagination:
       first: "Trang đầu"
@@ -155,3 +156,7 @@ vi:
   admin: "Quản trị viên"
   statistic:
     title: "Thống kê mượn sách theo ngày."
+  categories:
+    name: "Tên"
+    create_category: "Tạo mới danh mục"
+    edit_category: "chỉnh sửa"
