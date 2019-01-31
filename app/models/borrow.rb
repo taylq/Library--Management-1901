@@ -25,6 +25,7 @@ class Borrow < ApplicationRecord
   }
   scope :check_record, ->(user_id, book_id){where user_id: user_id, book_id: book_id, status: [:waiting] }
   scope :status_approved, ->{where(status: [:approved]).where("finished_at < ?", DateTime.now)}
+  scope :group_date, ->{group(:status).group "date(#{:created_at})"}
 
   class << self
     def search search, status
