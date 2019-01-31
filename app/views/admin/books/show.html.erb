@@ -1,0 +1,24 @@
+<div class="right_col" role="main">
+  <div>
+    <div class="row top_tiles" style="margin: 10px 0;">
+      <div class="col-md-12 col-sm-12 col-xs-12 tile">
+        <aside class="col-md-4">
+          <section class="user_info">
+            <h3>
+              <%= @book.name %>
+            </h3>
+            <h5>
+              <%= @book.category_name %>
+              <%= @book.publisher_name %>
+              <%= @book.number_of_page %>
+              <%= @book.status %>
+            </h5>
+          </section>
+          <p>
+            <%= link_to t("users.edit"), edit_admin_book_path(@book) %>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>

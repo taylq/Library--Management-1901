@@ -6,4 +6,6 @@
   <td><%= book.publisher_name %></td>
   <td><%= book.number_of_page %></td>
   <td><%= book.status %></td>
+  <td><%= link_to t("comments.delete"), admin_book_path(book),method: :delete,
+    data: {confirm: t("comments.you_sure")}, class: "btn btn-danger" %></td>
 </tr>

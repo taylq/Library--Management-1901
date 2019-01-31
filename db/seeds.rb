@@ -44,3 +44,17 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+puts "9. Seeding Rater"
+users = User.all
+books = Book.all
+users.each do |rater|
+  books.each do |book|
+    star = rand(1..5)
+    Rate.create!(rater_id: rater.id, rateable_type: "Book", rateable_id: book.id, stars: star, dimension: "like")
+  end
+end
+books.each do |book|
+  avg = Rate.where(rateable_id: book.id).sum(:stars)/users.count
+  RatingCache.create!(cacheable_type: "Book", cacheable_id: book.id, avg: avg, qty: users.count, dimension: "like")
+end
