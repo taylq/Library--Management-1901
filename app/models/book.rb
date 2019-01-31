@@ -13,10 +13,6 @@ class Book < ApplicationRecord
   belongs_to :publisher
   default_scope -> {order(created_at: :desc)}
   scope :select_attr, ->{select(:id, :category_id, :publisher_id, :name, :content, :number_of_page, :status, :image)}
-  scope :search_scope, ->(search) do
-    joins(:publisher, authors_books: :author)
-    .where "books.name like '%#{search}%' or books.content like '%#{search}%' or publishers.name like '%#{search}%' or authors.name like '%#{search}%'"
-  end
   mount_uploader :image, ImageUploader
   accepts_nested_attributes_for :authors_books, allow_destroy: true,
     reject_if: proc{|attributes| attributes["author_id"] == "0"}
@@ -25,14 +21,6 @@ class Book < ApplicationRecord
   delegate :name, to: :category, prefix: true
 
   class << self
-    def search search
-      if search
-        search_scope search
-      else
-        Book.select_attr
-      end
-    end
-
     def to_csv
       CSV.generate do |csv|
         attributes = %w{id name category_id publisher_id content number_of_page status}

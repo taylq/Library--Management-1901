@@ -20,9 +20,11 @@
         <ul class="nav side-menu">
           <li><a><i class="fa fa-bars"></i> <%= t "admins.menu" %> <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><%= link_to t("admin.users"), admin_users_path %></li>
-              <li><%= link_to t("admin.borows"), admin_borrows_path %></li>
-              <li><%= link_to t("admin.books"), admin_books_path %></li>
+              <li><%= link_to t("admins.statistic"), admin_statistics_path %></li>
+              <li><%= link_to t("admins.users"), admin_users_path %></li>
+              <li><%= link_to t("admins.borows"), admin_borrows_path %></li>
+              <li><%= link_to t("admins.books"), admin_books_path %></li>
+              <li><%= link_to t("admins.categories"), admin_categories_path %></li>
             </ul>
           </li>
         </ul>

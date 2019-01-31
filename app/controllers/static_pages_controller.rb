@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    @books = Book.select_attr.page(params[:page]).per(Settings.book_per_page)
-      .search params[:search]
+    @q = Book.ransack params[:q]
+    @books = @q.result(distinct: true).page(params[:page]).per Settings.book_per_page
     @categories = Category.select_attr
   end
 
